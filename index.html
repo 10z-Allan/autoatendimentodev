@@ -296,6 +296,32 @@ h1{color:#321078}
  .tour-btn{padding:9px 10px;font-size:10px}
 }
 
+
+/* Pagamento em dinheiro — mídia e alerta */
+.money-alert{
+  display:flex;align-items:center;gap:10px;margin:13px 0 15px;
+  padding:13px 15px;border:2px solid #d97706;border-radius:12px;
+  background:#fff2d8;color:#8a4300;font-weight:900;font-size:13px;
+  letter-spacing:.02em;animation:moneyAlertPulse 1s steps(2,end) infinite;
+}
+.money-alert .alert-icon{font-size:20px;line-height:1}
+@keyframes moneyAlertPulse{
+  0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(217,119,6,.25)}
+  50%{opacity:.48;box-shadow:0 0 0 5px rgba(217,119,6,.12)}
+}
+.step-gif-slot{
+  margin-top:12px;padding:16px 12px;min-height:105px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;border:2px dashed #c49abf;border-radius:12px;
+  background:linear-gradient(135deg,#fff8fc,#f7f0fa);color:#72527f;
+}
+.step-gif-slot strong{font-size:11px;color:#653b7e;letter-spacing:.04em}
+.step-gif-slot span{font-size:10px;line-height:1.45;margin-top:5px}
+.money-video-wrap{margin-top:17px;overflow:hidden;border-radius:14px;background:#17121d;border:1px solid #e2d8e9}
+.money-video-wrap video{display:block;width:100%;height:auto;max-height:65vh;object-fit:contain;background:#17121d}
+.money-video-caption{padding:9px 12px;background:#f7f2fa;color:#604477;font-size:11px;font-weight:800}
+@media(prefers-reduced-motion:reduce){.money-alert{animation:none}}
+
 </style></head>
 <body>
 <div class="app">
@@ -347,15 +373,48 @@ h1{color:#321078}
 </section></div>
 <script>
 const content={
-dinheiro:{tag:"PAGAMENTO • DINHEIRO",title:"O cliente pagou em dinheiro no Totem. O que faço?",lead:"O pedido já foi feito no Totem, mas o pagamento precisa ser concluído no caixa antes da produção.",steps:["Peça ao cliente a conferência impressa com a senha do pedido.","No PDV, acesse a tela BALCÃO PENDENTE.","Localize o pedido correspondente e receba o pagamento.","Conclua o recebimento e emita o cupom fiscal.","Confira nos KDS: o indicador NÃO PAGO deve desaparecer. O pedido fica liberado para produção."],note:"Enquanto o pedido estiver marcado como NÃO PAGO, o KDS não permite confirmar a conclusão do lanche.",media:"PRINTS DO BALCÃO PENDENTE • IDENTIFICAÇÃO DO PEDIDO • RECEBIMENTO"},
+dinheiro:{tag:"PAGAMENTO • DINHEIRO",title:"Pedido do TOTEM em DINHEIRO? Onde Achar.",lead:"O pedido já foi feito no Totem, mas o pagamento precisa ser concluído no caixa antes da produção.",steps:["Chame o cliente pela senha através do Balcão Pendente e acesse o Balcão Pendente.","Localize o pedido correspondente e vá em Seguir para recebimento.","Altere o valor lançado.","Conclua o recebimento e emita o cupom fiscal. No KDS, o indicador NÃO PAGO irá desaparecer e o pedido será liberado para produção."],note:"Enquanto o pedido estiver marcado como NÃO PAGO, o KDS não permite confirmar a conclusão do lanche.",media:"Acesso ao Balcão Pendente"},
 pendente:{tag:"LOCALIZAR PEDIDO",title:"Onde encontro os pedidos pendentes?",lead:"Os pedidos feitos no Totem com pagamento em dinheiro ficam disponíveis na tela BALCÃO PENDENTE do PDV.",steps:["No caixa, abra o PDV SW.","Acesse a opção BALCÃO PENDENTE.","Localize o pedido usando as informações da conferência impressa e a senha.","Abra o pedido para seguir com o recebimento."],note:"O caminho exato dentro do PDV será demonstrado com prints na próxima etapa.",media:"PRINT DA TELA INICIAL DO PDV • CAMINHO ATÉ BALCÃO PENDENTE"},
 kds:{tag:"PRODUÇÃO • KDS",title:"Por que o pedido aparece como NÃO PAGO?",lead:"O pedido feito no Totem com pagamento em dinheiro aparece nos KDS antes da confirmação do pagamento.",steps:["O pedido é integrado aos três KDS e aparece com o indicador NÃO PAGO.","O cliente precisa concluir o pagamento no caixa, pela tela BALCÃO PENDENTE.","Após o recebimento e a emissão do cupom, o indicador NÃO PAGO desaparece.","Com o indicador removido, o pedido pode seguir pelas etapas de produção e confirmação."],note:"Pedidos NÃO PAGOS não permitem confirmar a conclusão do lanche no KDS.",media:"PRINT DO PEDIDO COM INDICADOR NÃO PAGO • PRINT APÓS PAGAMENTO"},
 senha:{tag:"PAINEL DE SENHAS",title:"Como chamar uma senha novamente?",lead:"Use este procedimento quando for necessário reapresentar um pedido que já foi chamado anteriormente.",steps:["No KDS 3, recupere o pedido correspondente.","Selecione o pedido e confirme novamente pelo ícone dos dois certos.","A senha retorna à faixa PRONTO no painel por mais dois minutos.","Na chamada repetida, o alerta inicial de tela verde e som não acontece novamente."],note:"A primeira chamada ocorre com alerta visual e sonoro. A chamada repetida não reproduz esse alerta.",media:"GIF DO KDS 3 • EXEMPLO DA SENHA RETORNANDO PARA PRONTO"},
 expedicao:{tag:"EXPEDIÇÃO • KDS 3",title:"O que preciso conferir antes de liberar o pedido?",lead:"A expedição confere fisicamente o pedido completo antes da confirmação final no KDS 3.",steps:["Confira os sanduíches e suas personalizações.","Verifique as bebidas do pedido.","Confira os acompanhamentos, como Cookies e Chips, quando existirem.","Confirme se o pedido é para levar ou consumir na loja.","Com a conferência concluída, selecione o pedido no KDS 3 e acione os dois certos para chamar a senha."],note:"A confirmação no KDS 3 é a etapa que chama a senha no painel.",media:"PRINT DO KDS 3 • EXEMPLO DE CONFERÊNCIA • ÍCONE DOS DOIS CERTOS"},
 problema:{tag:"SITUAÇÃO ESPECIAL",title:"Meu pedido não aparece ou algo não funcionou",lead:"Esta área será preenchida com os procedimentos de diagnóstico que forem validados pela operação e pelo suporte SW.",steps:["Identifique em qual equipamento o problema ocorreu: PDV, KDS ou painel de senhas.","Registre a senha do pedido e o que está aparecendo na tela.","Não repita lançamentos ou confirmações sem validar a situação para evitar duplicidade.","Acione o suporte conforme o procedimento definido pela operação."],note:"Orientação provisória: o procedimento detalhado de diagnóstico ainda será construído. Não execute ações corretivas não validadas.",media:"ESPAÇO PARA ÁRVORE DE DIAGNÓSTICO • PRINTS DE ERROS"}
 };
-function openTopic(id){const d=content[id];if(!d)return;document.getElementById("drawerTag").textContent=d.tag;document.getElementById("drawerTitle").textContent=d.title;document.getElementById("drawerLead").textContent=d.lead;document.getElementById("drawerSteps").innerHTML=d.steps.map((s,i)=>`<div class="step-row"><div class="num">${i+1}</div><div><b>Etapa ${i+1}</b><p>${s}</p></div></div>`).join("");document.getElementById("drawerNote").textContent=d.note||"";document.getElementById("drawerNote").style.display=d.note?"block":"none";document.querySelector("#mediaSlot strong").textContent=d.media;document.getElementById("overlay").classList.add("open");document.body.style.overflow="hidden"}
-function closeDrawer(){document.getElementById("overlay").classList.remove("open");document.body.style.overflow=""}
+function openTopic(id){
+ const d=content[id];if(!d)return;
+ document.getElementById("drawerTag").textContent=d.tag;
+ document.getElementById("drawerTitle").textContent=d.title;
+ document.getElementById("drawerLead").textContent=d.lead;
+ const stepsEl=document.getElementById("drawerSteps");
+ if(id==="dinheiro"){
+   stepsEl.innerHTML=`
+    <div class="step-row"><div class="num">1</div><div><b>Etapa 1</b><p>${d.steps[0]}</p></div></div>
+    <div class="step-row"><div class="num">2</div><div><b>Etapa 2</b><p>${d.steps[1]}</p></div></div>
+    <div class="money-alert" role="alert"><span class="alert-icon">⚠</span><span>ALERTA: Confira se o troco está correto</span></div>
+    <div class="step-row"><div class="num">3</div><div><b>Etapa 3</b><p>${d.steps[2]}</p>
+      <div class="step-gif-slot"><strong>ESPAÇO RESERVADO PARA GIF</strong><span>Demonstração visual de como alterar o valor lançado. O GIF será inserido aqui posteriormente.</span></div>
+    </div></div>
+    <div class="step-row"><div class="num">4</div><div><b>Etapa 4</b><p>${d.steps[3]}</p></div></div>`;
+   document.getElementById("mediaSlot").innerHTML=`
+    <div class="money-video-wrap">
+      <video controls playsinline preload="metadata" poster="assets/multimidia/capa.jpg">
+        <source src="assets/multimidia/Acesso_Balcao_Pendente.mp4" type="video/mp4">
+        Seu navegador não conseguiu reproduzir este vídeo.
+      </video>
+      <div class="money-video-caption">Demonstração: acesso ao Balcão Pendente</div>
+    </div>`;
+   document.getElementById("mediaSlot").style.display="block";
+ }else{
+   stepsEl.innerHTML=d.steps.map((s,i)=>`<div class="step-row"><div class="num">${i+1}</div><div><b>Etapa ${i+1}</b><p>${s}</p></div></div>`).join("");
+   document.getElementById("mediaSlot").innerHTML=`<div><strong>${d.media}</strong><span>Este espaço será preenchido na etapa de multimídia, com a tela real e a demonstração da ação.</span></div>`;
+   document.getElementById("mediaSlot").style.display="grid";
+ }
+ document.getElementById("drawerNote").textContent=d.note||"";
+ document.getElementById("drawerNote").style.display=d.note?"block":"none";
+ document.getElementById("overlay").classList.add("open");
+ document.body.style.overflow="hidden";
+}
+function closeDrawer(){const v=document.querySelector("#mediaSlot video");if(v)v.pause();document.getElementById("overlay").classList.remove("open");document.body.style.overflow=""}
 function backdropClose(e){if(e.target.id==="overlay")closeDrawer()}
 function openHelp(){startTutorial(true)}
 document.querySelectorAll(".node").forEach(n=>n.addEventListener("click",()=>openTopic(n.dataset.id)));
