@@ -19,6 +19,8 @@ Projeto de apoio operacional para lojas Subway, com orientações organizadas em
         ├── 02_Selecionar_Balcao.gif
         ├── 01_Botao_Faca_e_Colher.gif
         ├── 01_Selecionar_Dinheiro.gif
+        ├── 01_Clicar_no_Pedido.gif
+        └── 02_Clicar_no_Botao.gif
         ├── 02_Remover_Dinheiro.gif
         └── capa.jpg
 ```
@@ -81,3 +83,21 @@ Ao final da Etapa 4 do tópico **Pedido do TOTEM em DINHEIRO? Onde Achar.**, o p
 - https://youtu.be/ZOQCg0hIqFY
 
 O vídeo é carregado por incorporação responsiva (iframe), portanto o arquivo de vídeo não é armazenado no repositório GitHub. Para trocar o vídeo, atualize o ID do YouTube no `src` do iframe em `index.html`.
+
+
+## Menu — Pedido no KDS: como baixar?
+
+O menu explica a sequência de baixa do pedido nos três KDS:
+
+1. **KDS 1:** primeira parte do pedido — sanduíche/proteína, pão, queijo, quente/frio, dobro, adicionais e batata rústica.
+2. **KDS 2:** segunda parte — hortifruti, temperos e molhos. “M.” identifica molho extra em pote separado.
+3. **KDS 3:** expedição — reúne KDS 1 e 2, acrescenta bebidas, Cookies, Chips e a indicação levar/consumir na loja. A conferência física do pedido completo ocorre antes da confirmação final.
+4. Cada tela é baixada em sequência usando o botão dos dois certos. A confirmação do KDS 3 chama a senha no painel.
+
+O pedido aparece nos três KDS simultaneamente; não é transferido de uma tela para outra.
+
+### Demonstrações e vídeo completo
+
+- `assets/multimidia/01_Clicar_no_Pedido.gif`: selecionar o pedido.
+- `assets/multimidia/02_Clicar_no_Botao.gif`: acionar o botão dos dois certos.
+- Vídeo completo hospedado no YouTube: https://youtu.be/t0Yv-p-ZbZ0
