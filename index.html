@@ -777,6 +777,47 @@ h1{color:#321078}
  .map-canvas { position:absolute!important; inset:0!important; width:100%!important; height:100%!important; }
 }
 
+
+/* ===== AJUSTES FINAIS: CONTROLE CENTRAL E MOBILE ===== */
+@media (max-width: 760px) {
+  /* O botão central participa do fluxo mobile: nunca fica sobre os cards. */
+  .hub {
+    position: relative !important;
+    inset: auto !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    order: 2 !important;
+    align-self: center !important;
+    width: 118px !important;
+    height: 118px !important;
+    min-width: 118px !important;
+    min-height: 118px !important;
+    margin: 8px auto 8px !important;
+    flex: 0 0 118px !important;
+    z-index: 30 !important;
+  }
+  .hub-icon {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 14px !important;
+    margin: 0 0 6px !important;
+  }
+  .hub-icon svg { width: 32px !important; height: 32px !important; }
+  .hub b { font-size: 11px !important; }
+  .hub small { font-size: 8px !important; }
+
+  /* Mesmo acabamento claro do desktop para o card principal do KDS. */
+  .node.kds-guide {
+    background: linear-gradient(145deg, #ffffff 0%, #f4ecfb 100%) !important;
+    border: 1px solid #63397e !important;
+    color: #321078 !important;
+    box-shadow: 0 12px 28px #32107814 !important;
+  }
+  .node.kds-guide .txt b { color: #321078 !important; }
+  .node.kds-guide .txt small { color: #746681 !important; }
+}
+
 </style></head>
 <body>
 <div class="app">
@@ -1096,9 +1137,19 @@ function expandCategory(category){
  hubHint.textContent="Categoria selecionada • clique para expandir tudo";
 }
 hubToggle.addEventListener("click",()=>{
- if(document.getElementById("kdsSubnodes").classList.contains("visible")) toggleKdsSubnodes(false);
- const collapsed=mapShell.classList.contains("menus-collapsed");
- setAllMenusExpanded(collapsed);
+ const overlay=document.getElementById("overlay");
+ const drawerIsOpen=overlay.classList.contains("open");
+
+ // O botão central sempre prioriza sair da orientação aberta.
+ // Ao fechar uma etapa, também retorna o mapa ao estado recolhido.
+ if(drawerIsOpen){
+   closeDrawer();
+   setAllMenusExpanded(false);
+ }else{
+   // Sem etapa aberta, alterna entre recolher e expandir os menus.
+   const collapsed=mapShell.classList.contains("menus-collapsed");
+   setAllMenusExpanded(collapsed);
+ }
  scheduleConnectorUpdate();
 });
 legendItems.forEach(item=>{
