@@ -710,7 +710,7 @@ h1{color:#321078}
   }
   .node.kds.n3 { left: 22% !important; top: 84% !important; }
   /* Coluna direita */
-  .node.kds.n7 { left: 78% !important; top: 25% !important; }
+  .node.panel-senha.n7 { left: 78% !important; top: 25% !important; }
   .node.senha { left: 78% !important; top: 55% !important; }
   .node.other { left: 78% !important; top: 84% !important; }
 
@@ -767,12 +767,14 @@ h1{color:#321078}
 
 /* Linhas conectadas aos elementos reais: geometria atualizada por JavaScript */
 .map-canvas { z-index:2!important; pointer-events:none!important; overflow:visible!important; }
-.connector-visible { pointer-events:none!important; }
-.connector-hit { pointer-events:none!important; }
-.connector-hit path { fill:none; stroke:transparent; stroke-width:26; pointer-events:stroke; cursor:pointer; }
-.connector-hit path:hover { stroke:#ed168f24; }
+.connector-visible,.connector-hit { pointer-events:none!important; }
+.connector-hit path { display:none!important; }
+.connector-visible { opacity:1; transition:opacity .28s ease; }
 .connector-visible path { fill:none; stroke:#b78acb; stroke-width:2.4; stroke-dasharray:6 9; opacity:.82; pointer-events:none; }
 .connector-visible path.glow { stroke:#dca8df; stroke-width:10; stroke-dasharray:none; opacity:.22; }
+.map-shell.menus-collapsed .connector-visible { opacity:0!important; }
+.map-shell.category-mode .connector-visible { opacity:1; }
+@media(max-width:760px){.map-canvas{display:none!important}}
 @media(min-width:761px) {
  .map-canvas { position:absolute!important; inset:0!important; width:100%!important; height:100%!important; }
 }
@@ -831,6 +833,24 @@ h1{color:#321078}
 .panel-outcome-foot{margin:12px 0 0;padding:10px 12px;border-left:4px solid #12a99d;border-radius:0 9px 9px 0;background:#eafaf6;color:#245b54;font-size:11px;line-height:1.5;font-weight:700}
 @media(max-width:620px){.panel-outcome-section{padding:12px}.panel-outcome-grid{grid-template-columns:1fr;gap:10px}.panel-outcome-card p{min-height:0}.panel-outcome-card img{height:auto;max-height:230px}.panel-outcome-card{padding:9px}}
 
+
+/* Menu Painel de Senhas: vermelho/rosa da categoria Painel */
+.node.panel-senha{
+ --accent:#dc2626;--tint:#fee2e2;--ring:#dc262645;
+ border:1.5px solid #dc2626b8!important;
+ background:linear-gradient(135deg,#fff 0%,#fff0f7 100%)!important;
+ color:#321078!important;
+}
+.node.panel-senha .ico{background:#fee2e2!important;color:#dc2626!important;border:1px solid #dc262645!important}
+.node.panel-senha .txt b{color:#321078!important}
+.node.panel-senha .txt small{color:#746681!important}
+.node.panel-senha .dot{background:#dc2626!important;box-shadow:0 0 0 4px #dc262618,0 0 14px #dc262675!important}
+
+/* Dois procedimentos distintos: restauração de produção e retorno da senha. */
+@media(min-width:761px){
+  .node.panel-senha.n7{left:78%!important;top:22%!important}
+  .node.kds.n8{left:78%!important;top:51%!important}
+}
 </style></head>
 <body>
 <div class="app">
@@ -862,7 +882,8 @@ h1{color:#321078}
   <button class="node kds n3" style="left:19%;top:77%" data-category="kds" data-id="kds" data-terms="kds produção não pago liberar produção"><span class="ico">▤</span><span class="txt"><b>Como baixar o Pedido no KDS?</b><small>Etapas de baixa do pedido</small></span><i class="dot"></i></button>
 
   <button class="node other n6" style="left:76%;top:72%" data-category="other" data-id="problema" data-terms="problema pedido não aparece kds suporte"><span class="ico">!</span><span class="txt"><b>Algo não funcionou?</b><small>Pedido ausente ou falha</small></span><i class="dot"></i></button>
-  <button class="node kds n7" style="left:80%;top:17%" data-category="kds" data-id="restaurar" data-terms="chamar senha novamente restaurar pedido KDS 3 expedição pronto retorno senha painel"><span class="ico">↶</span><span class="txt"><b>Como chamar novamente a senha?</b><small>Restaure o pedido somente no KDS 3</small></span><i class="dot"></i></button>
+  <button class="node panel-senha n7" style="left:80%;top:17%" data-category="panel" data-id="senha" data-terms="painel de senhas chamar senha novamente restaurar pedido KDS 3 expedição pronto retorno senha"><span class="ico">▦</span><span class="txt"><b>Como chamar novamente a senha no Painel de Senhas?</b><small>Retorne a senha para PRONTO pelo KDS 3</small></span><i class="dot"></i></button>
+  <button class="node kds n8" style="left:80%;top:48%" data-category="kds" data-id="restaurar" data-terms="como voltar pedido no KDS 1 KDS 2 baixei sem querer retorno restaurar pedido produção"><span class="ico">↶</span><span class="txt"><b>Como voltar um pedido no KDS?</b><small>Baixei sem querer no KDS 1 ou 2</small></span><i class="dot"></i></button>
  </section>
  <div class="bottomline"><span>Selecione um ponto para abrir a orientação correspondente.</span><span>Allan Vale Services &amp; Ops</span></div>
 </main>
@@ -892,7 +913,8 @@ kdsGuide:{tag:"LEITURA DAS TELAS • KDS",title:"O QUE APARECE NO KDS?",lead:"Se
 kdsHot:{tag:"KDS 1 • QUENTE",title:"KDS 1 — QUENTE",lead:"Identificação dos itens que aparecem na tela do KDS 1.",steps:[],note:"Os itens AD. BACON 15 CM, AD. SALAME 15 CM e QUENTE também aparecem no KDS 2 e no KDS 3.",media:""},
 kdsCold:{tag:"KDS 2 • FRIOS",title:"KDS 2 — FRIOS",lead:"Identificação dos itens que aparecem na tela do KDS 2.",steps:[],note:"AD. BACON 15 CM, AD. SALAME 15 CM e QUENTE também aparecem no KDS 1 e no KDS 3.",media:""},
 kdsDispatch:{tag:"KDS 3 • EXPEDIÇÃO",title:"KDS 3 — EXPEDIÇÃO",lead:"Conferência dos itens reunidos na tela de expedição.",steps:[],note:"A tela reúne itens que também aparecem nos KDS 1 e 2, além dos acompanhamentos e da bebida.",media:""},
-restaurar:{tag:"KDS 3 • EXPEDIÇÃO",title:"Como chamar novamente a senha?",lead:"Quando a senha já foi chamada e saiu da faixa PRONTO, é possível devolvê-la ao painel restaurando o pedido exclusivamente pelo KDS 3 — Expedição. Atenção: esta ação não faz uma nova chamada com alerta em tela cheia; ela apenas retorna a senha para a coluna PRONTO.",steps:["No KDS 3 — EXPEDIÇÃO, clique no botão de retorno que fica ao lado da lupa.","Confirme a restauração do pedido.","Clique em RESTAURAR PEDIDO.","Clique em FINALIZAR RESTAURAÇÃO. A senha retorna para a coluna PRONTO no Painel de Senhas."],note:"ATENÇÃO: procedimento exclusivo do KDS 3 — EXPEDIÇÃO. Não execute a restauração pelo KDS 1 — QUENTE ou KDS 2 — FRIOS. A primeira chamada da senha exibe o alerta visual em tela cheia; ao chamar novamente, a restauração apenas devolve a senha à coluna PRONTO.",media:"DEMONSTRAÇÃO • RESTAURAR PEDIDO NO KDS 3 E RETORNAR A SENHA PARA PRONTO"},
+restaurar:{tag:"KDS • RESTAURAÇÃO DE PEDIDO",title:"Como Voltar um Pedido no KDS?",lead:"Baixei sem querer, preciso voltar, como fazer?",steps:["Clique no botão de retorno que fica ao lado da lupa.","Confirme a restauração do pedido.","Restaure o pedido.","Finalize a restauração."],note:"Siga a sequência demonstrada nos GIFs para retornar o pedido baixado por engano."},
+senha:{tag:"PAINEL DE SENHAS • KDS 3",title:"Como chamar novamente a senha no Painel de Senhas?",lead:"Quando a senha já foi chamada e saiu da faixa PRONTO, é possível devolvê-la ao painel restaurando o pedido exclusivamente pelo KDS 3 — Expedição. Atenção: esta ação não faz uma nova chamada com alerta em tela cheia; ela apenas retorna a senha para a coluna PRONTO.",steps:["No KDS 3 — EXPEDIÇÃO, clique no botão de retorno que fica ao lado da lupa.","Confirme a restauração do pedido.","Clique em RESTAURAR PEDIDO.","Clique em FINALIZAR RESTAURAÇÃO. A senha retorna para a coluna PRONTO no Painel de Senhas."],note:"ATENÇÃO: procedimento exclusivo do KDS 3 — EXPEDIÇÃO. Não execute a restauração pelo KDS 1 — QUENTE ou KDS 2 — FRIOS. A primeira chamada da senha exibe o alerta visual em tela cheia; ao chamar novamente, a restauração apenas devolve a senha à coluna PRONTO.",media:"DEMONSTRAÇÃO • RESTAURAR PEDIDO NO KDS 3 E RETORNAR A SENHA PARA PRONTO"},
 problema:{tag:"SITUAÇÃO ESPECIAL",title:"Meu pedido não aparece ou algo não funcionou",lead:"Esta área será preenchida com os procedimentos de diagnóstico que forem validados pela operação e pelo suporte SW.",steps:["Identifique em qual equipamento o problema ocorreu: PDV, KDS ou painel de senhas.","Registre a senha do pedido e o que está aparecendo na tela.","Não repita lançamentos ou confirmações sem validar a situação para evitar duplicidade.","Acione o suporte conforme o procedimento definido pela operação."],note:"Orientação provisória: o procedimento detalhado de diagnóstico ainda será construído. Não execute ações corretivas não validadas.",media:"ESPAÇO PARA ÁRVORE DE DIAGNÓSTICO • PRINTS DE ERROS"}
 };
 function openTopic(id){
@@ -935,6 +957,34 @@ function openTopic(id){
    document.getElementById("mediaSlot").innerHTML="";
    document.getElementById("mediaSlot").style.display="none";
  }else if(id==="restaurar"){
+   stepsEl.innerHTML=`
+    <div class="step-row"><div class="num">1</div><div><b>Etapa 1</b><p>${d.steps[0]}</p>
+      <div class="step-gif-slot step-gif-ready">
+        <img src="assets/multimidia/01_Clicar_no_Retorno_ao_Lado_da_Lupa.gif" alt="Clique no botão de retorno ao lado da lupa no KDS 1 ou KDS 2">
+        <span>1. No KDS 1 ou KDS 2, clique em <b>RETORNO</b>, ao lado da lupa</span>
+      </div>
+    </div></div>
+    <div class="step-row"><div class="num">2</div><div><b>Etapa 2</b><p>${d.steps[1]}</p>
+      <div class="step-gif-slot step-gif-ready">
+        <img src="assets/multimidia/02_Confirmar_Restauracao.gif" alt="Confirme a restauração do pedido">
+        <span>2. Clique em <b>CONFIRMAR RESTAURAÇÃO</b></span>
+      </div>
+    </div></div>
+    <div class="step-row"><div class="num">3</div><div><b>Etapa 3</b><p>${d.steps[2]}</p>
+      <div class="step-gif-slot step-gif-ready">
+        <img src="assets/multimidia/03_Restaurar_Pedido.gif" alt="Restaure o pedido baixado por engano">
+        <span>3. Clique em <b>RESTAURAR PEDIDO</b></span>
+      </div>
+    </div></div>
+    <div class="step-row"><div class="num">4</div><div><b>Etapa 4</b><p>${d.steps[3]}</p>
+      <div class="step-gif-slot step-gif-ready">
+        <img src="assets/multimidia/04_Finalizar_Restauracao.gif" alt="Finalize a restauração do pedido">
+        <span>4. Clique em <b>FINALIZAR RESTAURAÇÃO</b></span>
+      </div>
+    </div></div>`;
+   document.getElementById("mediaSlot").innerHTML="";
+   document.getElementById("mediaSlot").style.display="none";
+ }else if(id==="senha"){
    stepsEl.innerHTML=`
     <div class="step-row"><div class="num">1</div><div><b>Etapa 1</b><p>${d.steps[0]}</p>
       <div class="step-gif-slot step-gif-ready">
@@ -1048,6 +1098,7 @@ const connectorDefs=[
  {id:"dinheiro", selector:'.node[data-id="dinheiro"]'},
  {id:"kdsGuide", selector:'.node.kds-guide', dynamic:true},
  {id:"kds", selector:'.node[data-id="kds"]'},
+ {id:"senha", selector:'.node[data-id="senha"]'},
  {id:"restaurar", selector:'.node[data-id="restaurar"]'},
  {id:"problema", selector:'.node[data-id="problema"]'}
 ];
@@ -1070,6 +1121,9 @@ function updateConnectors(){
  const hubC=connectorCenter(hub,root);
  const hubBox={x:hubC.x,y:hubC.y,w:hubC.w+12,h:hubC.h+12};
  let visible="", hit="";
+ const collapsed=mapShell.classList.contains("menus-collapsed");
+ const categoryMode=mapShell.classList.contains("category-mode");
+ if(collapsed){connectorVisible.innerHTML="";connectorHit.innerHTML="";return;}
  connectorDefs.forEach(def=>{
    let target=document.querySelector(def.selector);
    if(def.dynamic && document.getElementById("kdsSubnodes").classList.contains("visible")){
@@ -1077,7 +1131,8 @@ function updateConnectors(){
    }
    if(!target) return;
    const style=getComputedStyle(target);
-   if(style.display==="none" || style.visibility==="hidden") return;
+   if(style.display==="none" || style.visibility==="hidden" || Number(style.opacity)===0) return;
+   if(categoryMode && !target.classList.contains("category-active") && !def.dynamic) return;
    const t=connectorCenter(target,root);
    const a=connectorPoint(hubBox,t), b=connectorPoint(t,hubBox);
    const d=`M ${a.x.toFixed(1)} ${a.y.toFixed(1)} L ${b.x.toFixed(1)} ${b.y.toFixed(1)}`;
@@ -1107,14 +1162,7 @@ if(window.ResizeObserver){
  connectorObserver.observe(document.querySelector(".kds-guide"));
  connectorObserver.observe(document.getElementById("kdsSubnodes"));
 }
-connectorHit.addEventListener("click",event=>{
- const path=event.target.closest("path[data-target]");
- if(!path) return;
- const id=path.dataset.target;
- if(id==="kdsGuide"){toggleKdsSubnodes();return;}
- if(document.getElementById("kdsSubnodes").classList.contains("visible")) toggleKdsSubnodes(false);
- openTopic(id);
-});
+// Linhas são guias visuais; os menus, e somente os menus, recebem cliques.
 document.addEventListener("click",event=>{
  const box=document.getElementById("kdsSubnodes");
  if(!box.classList.contains("visible")) return;

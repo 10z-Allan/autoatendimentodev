@@ -34,3 +34,18 @@ Abra `index.html` em servidor local ou publique no GitHub Pages para testar os v
 - O texto reforça que chamar novamente não repete o alerta inicial: a restauração apenas devolve a senha à coluna PRONTO.
 - O procedimento continua exclusivo do KDS 3 — EXPEDIÇÃO; não executar no KDS 1 ou KDS 2.
 - Os quatro GIFs originais foram preservados e mantidos na mesma ordem.
+
+
+## Correção — dois procedimentos independentes
+- Restaurado o menu **“Como voltar um pedido no KDS?”**, destinado a pedido baixado por engano no **KDS 1 — QUENTE ou KDS 2 — FRIOS**.
+- Criado/mantido separadamente o menu **“Como chamar novamente a senha?”**, exclusivo do **KDS 3 — EXPEDIÇÃO**.
+- Os dois menus usam a sequência de quatro GIFs de restauração, com textos contextualizados para cada finalidade.
+- Somente o menu de chamada novamente da senha apresenta a comparação do alerta da primeira chamada com o retorno à faixa **PRONTO** no Painel de Senhas.
+- Nenhum dos dois procedimentos substitui o outro; ambos ficam disponíveis no mapa.
+
+
+## Correção de layout — linhas e Painel de Senhas
+- Todas as linhas de conexão são geradas entre o núcleo central e cada menu, incluindo o menu Painel de Senhas.
+- As linhas são guias visuais, não áreas clicáveis; os próprios cartões continuam sendo os controles.
+- Ao recolher os menus, as linhas são removidas; ao expandir, são recalculadas e reaparecem conectadas aos cartões.
+- O menu de chamada novamente foi classificado como **Painel**, com destaque vermelho, e renomeado para **Como chamar novamente a senha no Painel de Senhas?**
