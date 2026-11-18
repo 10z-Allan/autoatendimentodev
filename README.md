@@ -18,3 +18,19 @@ Abra `index.html` em servidor local ou publique no GitHub Pages para testar os v
 - O mesmo comportamento é aplicado no desktop e no mobile.
 - No mobile, o botão central fica no fluxo da página, menor e sem sobrepor os cards.
 - O card “O QUE APARECE NO KDS?” usa o mesmo acabamento claro do desktop também no mobile.
+
+
+## Atualização — chamar novamente a senha pelo KDS 3
+- O antigo menu “Como Voltar um Pedido no KDS?” foi reaproveitado como “Como chamar novamente a senha?”.
+- O procedimento foi delimitado ao KDS 3 — Expedição.
+- A sequência de quatro GIFs foi mantida: retorno ao lado da lupa, confirmação, restaurar pedido e finalizar restauração.
+- A orientação informa que, ao concluir a restauração no KDS 3, a senha volta para a faixa PRONTO no Painel de Senhas.
+- O antigo card separado “Chamar senha novamente” foi retirado para evitar duas orientações concorrentes para a mesma finalidade.
+
+## Atualização — resultado da chamada de senha no painel
+- O menu “Como chamar novamente a senha?” diferencia a primeira chamada da restauração de uma senha já chamada.
+- A primeira chamada é ilustrada pela captura do alerta visual em tela cheia.
+- A restauração pelo KDS 3 é ilustrada pela captura do Painel de Senhas com destaque na coluna PRONTO e no cartão da senha.
+- O texto reforça que chamar novamente não repete o alerta inicial: a restauração apenas devolve a senha à coluna PRONTO.
+- O procedimento continua exclusivo do KDS 3 — EXPEDIÇÃO; não executar no KDS 1 ou KDS 2.
+- Os quatro GIFs originais foram preservados e mantidos na mesma ordem.

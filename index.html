@@ -818,6 +818,19 @@ h1{color:#321078}
   .node.kds-guide .txt small { color: #746681 !important; }
 }
 
+
+/* Comparativo visual: primeira chamada x retorno da senha para PRONTO */
+.panel-outcome-section{margin:20px 0 8px;padding:16px;border:1px solid #e7d9ed;border-radius:15px;background:linear-gradient(145deg,#fff,#faf5fc);box-shadow:0 4px 16px rgba(70,35,92,.07)}
+.panel-outcome-heading{margin:0 0 6px;color:#321078;font-size:15px;font-weight:900}
+.panel-outcome-intro{margin:0 0 14px;color:#746681;font-size:11px;line-height:1.5}
+.panel-outcome-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+.panel-outcome-card{min-width:0;padding:11px;border:1px solid #e8deee;border-radius:12px;background:#fff}
+.panel-outcome-card h4{margin:0 0 5px;color:#321078;font-size:12px;font-weight:900}
+.panel-outcome-card p{margin:0 0 9px;color:#746681;font-size:10px;line-height:1.45;min-height:42px}
+.panel-outcome-card img{display:block;width:100%;height:clamp(145px,20vw,230px);object-fit:contain;object-position:center;background:#f7f7f7;border-radius:8px;border:1px solid #eee}
+.panel-outcome-foot{margin:12px 0 0;padding:10px 12px;border-left:4px solid #12a99d;border-radius:0 9px 9px 0;background:#eafaf6;color:#245b54;font-size:11px;line-height:1.5;font-weight:700}
+@media(max-width:620px){.panel-outcome-section{padding:12px}.panel-outcome-grid{grid-template-columns:1fr;gap:10px}.panel-outcome-card p{min-height:0}.panel-outcome-card img{height:auto;max-height:230px}.panel-outcome-card{padding:9px}}
+
 </style></head>
 <body>
 <div class="app">
@@ -847,9 +860,9 @@ h1{color:#321078}
   </div>
   <button class="node money n1" style="left:24%;top:17%" data-category="payment" data-id="dinheiro" data-terms="dinheiro pagamento dinheiro totem balcão pendente receber"><span class="ico">＄</span><span class="txt"><b>Pedido em dinheiro</b><small>Onde encontrar e como receber?</small></span><i class="dot"></i></button>
   <button class="node kds n3" style="left:19%;top:77%" data-category="kds" data-id="kds" data-terms="kds produção não pago liberar produção"><span class="ico">▤</span><span class="txt"><b>Como baixar o Pedido no KDS?</b><small>Etapas de baixa do pedido</small></span><i class="dot"></i></button>
-  <button class="node senha n4" style="left:81%;top:40%" data-category="panel" data-id="senha" data-terms="senha painel pronto preparar chamar novamente"><span class="ico">▦</span><span class="txt"><b>Chamar senha novamente</b><small>Pedido pronto e retirada</small></span><i class="dot"></i></button>
+
   <button class="node other n6" style="left:76%;top:72%" data-category="other" data-id="problema" data-terms="problema pedido não aparece kds suporte"><span class="ico">!</span><span class="txt"><b>Algo não funcionou?</b><small>Pedido ausente ou falha</small></span><i class="dot"></i></button>
-  <button class="node kds n7" style="left:80%;top:17%" data-category="kds" data-id="restaurar" data-terms="kds voltar pedido restaurar retorno desfazer baixa baixei sem querer"><span class="ico">↶</span><span class="txt"><b>Como Voltar um Pedido no KDS?</b><small>Baixei sem querer, preciso voltar</small></span><i class="dot"></i></button>
+  <button class="node kds n7" style="left:80%;top:17%" data-category="kds" data-id="restaurar" data-terms="chamar senha novamente restaurar pedido KDS 3 expedição pronto retorno senha painel"><span class="ico">↶</span><span class="txt"><b>Como chamar novamente a senha?</b><small>Restaure o pedido somente no KDS 3</small></span><i class="dot"></i></button>
  </section>
  <div class="bottomline"><span>Selecione um ponto para abrir a orientação correspondente.</span><span>Allan Vale Services &amp; Ops</span></div>
 </main>
@@ -879,8 +892,7 @@ kdsGuide:{tag:"LEITURA DAS TELAS • KDS",title:"O QUE APARECE NO KDS?",lead:"Se
 kdsHot:{tag:"KDS 1 • QUENTE",title:"KDS 1 — QUENTE",lead:"Identificação dos itens que aparecem na tela do KDS 1.",steps:[],note:"Os itens AD. BACON 15 CM, AD. SALAME 15 CM e QUENTE também aparecem no KDS 2 e no KDS 3.",media:""},
 kdsCold:{tag:"KDS 2 • FRIOS",title:"KDS 2 — FRIOS",lead:"Identificação dos itens que aparecem na tela do KDS 2.",steps:[],note:"AD. BACON 15 CM, AD. SALAME 15 CM e QUENTE também aparecem no KDS 1 e no KDS 3.",media:""},
 kdsDispatch:{tag:"KDS 3 • EXPEDIÇÃO",title:"KDS 3 — EXPEDIÇÃO",lead:"Conferência dos itens reunidos na tela de expedição.",steps:[],note:"A tela reúne itens que também aparecem nos KDS 1 e 2, além dos acompanhamentos e da bebida.",media:""},
-restaurar:{tag:"KDS • RESTAURAÇÃO DE PEDIDO",title:"Como Voltar um Pedido no KDS?",lead:"Baixei sem querer, preciso voltar, como fazer?",steps:["Clique no botão de retorno que fica ao lado da lupa.","Confirme a restauração do pedido.","Restaure o pedido.","Finalize a restauração."],note:"Siga a sequência demonstrada nos GIFs para retornar o pedido baixado por engano."},
-senha:{tag:"PAINEL DE SENHAS",title:"Como chamar uma senha novamente?",lead:"Use este procedimento quando for necessário reapresentar um pedido que já foi chamado anteriormente.",steps:["No KDS 3, recupere o pedido correspondente.","Selecione o pedido e confirme novamente pelo ícone dos dois certos.","A senha retorna à faixa PRONTO no painel por mais dois minutos.","Na chamada repetida, o alerta inicial de tela verde e som não acontece novamente."],note:"A primeira chamada ocorre com alerta visual e sonoro. A chamada repetida não reproduz esse alerta.",media:"GIF DO KDS 3 • EXEMPLO DA SENHA RETORNANDO PARA PRONTO"},
+restaurar:{tag:"KDS 3 • EXPEDIÇÃO",title:"Como chamar novamente a senha?",lead:"Quando a senha já foi chamada e saiu da faixa PRONTO, é possível devolvê-la ao painel restaurando o pedido exclusivamente pelo KDS 3 — Expedição. Atenção: esta ação não faz uma nova chamada com alerta em tela cheia; ela apenas retorna a senha para a coluna PRONTO.",steps:["No KDS 3 — EXPEDIÇÃO, clique no botão de retorno que fica ao lado da lupa.","Confirme a restauração do pedido.","Clique em RESTAURAR PEDIDO.","Clique em FINALIZAR RESTAURAÇÃO. A senha retorna para a coluna PRONTO no Painel de Senhas."],note:"ATENÇÃO: procedimento exclusivo do KDS 3 — EXPEDIÇÃO. Não execute a restauração pelo KDS 1 — QUENTE ou KDS 2 — FRIOS. A primeira chamada da senha exibe o alerta visual em tela cheia; ao chamar novamente, a restauração apenas devolve a senha à coluna PRONTO.",media:"DEMONSTRAÇÃO • RESTAURAR PEDIDO NO KDS 3 E RETORNAR A SENHA PARA PRONTO"},
 problema:{tag:"SITUAÇÃO ESPECIAL",title:"Meu pedido não aparece ou algo não funcionou",lead:"Esta área será preenchida com os procedimentos de diagnóstico que forem validados pela operação e pelo suporte SW.",steps:["Identifique em qual equipamento o problema ocorreu: PDV, KDS ou painel de senhas.","Registre a senha do pedido e o que está aparecendo na tela.","Não repita lançamentos ou confirmações sem validar a situação para evitar duplicidade.","Acione o suporte conforme o procedimento definido pela operação."],note:"Orientação provisória: o procedimento detalhado de diagnóstico ainda será construído. Não execute ações corretivas não validadas.",media:"ESPAÇO PARA ÁRVORE DE DIAGNÓSTICO • PRINTS DE ERROS"}
 };
 function openTopic(id){
@@ -926,28 +938,45 @@ function openTopic(id){
    stepsEl.innerHTML=`
     <div class="step-row"><div class="num">1</div><div><b>Etapa 1</b><p>${d.steps[0]}</p>
       <div class="step-gif-slot step-gif-ready">
-        <img src="assets/multimidia/01_Clicar_no_Retorno_ao_Lado_da_Lupa.gif" alt="Clique no botão de retorno ao lado da lupa">
-        <span>1. Clique em <b>RETORNO</b>, ao lado da lupa</span>
+        <img src="assets/multimidia/01_Clicar_no_Retorno_ao_Lado_da_Lupa.gif" alt="No KDS 3, clique no botão de retorno ao lado da lupa para chamar a senha novamente">
+        <span>1. No <b>KDS 3 — EXPEDIÇÃO</b>, clique em <b>RETORNO</b>, ao lado da lupa</span>
       </div>
     </div></div>
     <div class="step-row"><div class="num">2</div><div><b>Etapa 2</b><p>${d.steps[1]}</p>
       <div class="step-gif-slot step-gif-ready">
-        <img src="assets/multimidia/02_Confirmar_Restauracao.gif" alt="Confirme a restauração do pedido">
+        <img src="assets/multimidia/02_Confirmar_Restauracao.gif" alt="Confirme a restauração do pedido no KDS 3">
         <span>2. Clique em <b>CONFIRMAR RESTAURAÇÃO</b></span>
       </div>
     </div></div>
     <div class="step-row"><div class="num">3</div><div><b>Etapa 3</b><p>${d.steps[2]}</p>
       <div class="step-gif-slot step-gif-ready">
-        <img src="assets/multimidia/03_Restaurar_Pedido.gif" alt="Restaure o pedido no KDS">
+        <img src="assets/multimidia/03_Restaurar_Pedido.gif" alt="Restaure o pedido no KDS 3 para a senha voltar a PRONTO">
         <span>3. Clique em <b>RESTAURAR PEDIDO</b></span>
       </div>
     </div></div>
     <div class="step-row"><div class="num">4</div><div><b>Etapa 4</b><p>${d.steps[3]}</p>
       <div class="step-gif-slot step-gif-ready">
-        <img src="assets/multimidia/04_Finalizar_Restauracao.gif" alt="Finalize a restauração do pedido">
-        <span>4. Clique em <b>FINALIZAR RESTAURAÇÃO</b></span>
+        <img src="assets/multimidia/04_Finalizar_Restauracao.gif" alt="Finalize a restauração e retorne a senha para PRONTO no painel">
+        <span>4. Clique em <b>FINALIZAR RESTAURAÇÃO</b>. A senha volta para <b>PRONTO</b></span>
       </div>
-    </div></div>`;
+    </div></div>
+    <section class="panel-outcome-section" aria-label="Diferença entre primeira chamada e chamada novamente no Painel de Senhas">
+      <h3 class="panel-outcome-heading">O que acontece no Painel de Senhas?</h3>
+      <p class="panel-outcome-intro">Compare a primeira chamada com a restauração de uma senha que já foi chamada. O resultado no painel é diferente.</p>
+      <div class="panel-outcome-grid">
+        <article class="panel-outcome-card">
+          <h4>1. Primeira chamada da senha</h4>
+          <p>Na chamada inicial, o painel exibe o alerta visual em tela cheia com o número da senha.</p>
+          <img src="assets/multimidia/alerta_primeira_chamada_senha.png" alt="Alerta visual em tela cheia exibido na primeira chamada da senha 019">
+        </article>
+        <article class="panel-outcome-card">
+          <h4>2. Chamar novamente</h4>
+          <p>Depois de restaurar pelo KDS 3, a senha retorna diretamente para a coluna PRONTO.</p>
+          <img src="assets/multimidia/painel_senha_pronto_destaque.png" alt="Painel de Senhas com destaque na coluna PRONTO e na senha 019 restaurada">
+        </article>
+      </div>
+      <p class="panel-outcome-foot">Importante: chamar novamente não repete o alerta inicial de tela cheia. A restauração apenas devolve a senha para PRONTO no painel.</p>
+    </section>`;
    document.getElementById("mediaSlot").innerHTML="";
    document.getElementById("mediaSlot").style.display="none";
  }else if(id==="dinheiro"){
@@ -1020,7 +1049,6 @@ const connectorDefs=[
  {id:"kdsGuide", selector:'.node.kds-guide', dynamic:true},
  {id:"kds", selector:'.node[data-id="kds"]'},
  {id:"restaurar", selector:'.node[data-id="restaurar"]'},
- {id:"senha", selector:'.node[data-id="senha"]'},
  {id:"problema", selector:'.node[data-id="problema"]'}
 ];
 function connectorPoint(from,to){
