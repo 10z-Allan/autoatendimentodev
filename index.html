@@ -851,6 +851,27 @@ h1{color:#321078}
   .node.panel-senha.n7{left:78%!important;top:22%!important}
   .node.kds.n8{left:78%!important;top:51%!important}
 }
+
+
+/* Novo menu TOTEM — classificação e identidade visual da legenda */
+.node.totem-menu{
+ border:1.5px solid #078b82b8!important;
+ background:linear-gradient(145deg,#fff 0%,#eafaf7 100%)!important;
+ color:#321078!important;
+ box-shadow:0 12px 28px #078b8218!important;
+}
+.node.totem-menu .ico{
+ background:#dcf7f3!important;color:#078b82!important;
+ border:1px solid #078b8240!important;
+}
+.node.totem-menu .txt b{color:#321078!important}
+.node.totem-menu .txt small{color:#657d79!important}
+.node.totem-menu .dot{background:#078b82!important;box-shadow:0 0 0 4px #078b8218,0 0 14px #078b8275!important}
+@media(min-width:761px){
+ .node.totem-menu.n9{left:50%!important;top:89%!important;width:230px!important;min-height:88px!important}
+}
+.totem-video-link{margin:8px 0 0;text-align:center;font-size:11px;font-weight:800}
+.totem-video-link a{color:#078b82;text-decoration:underline;text-underline-offset:3px}
 </style></head>
 <body>
 <div class="app">
@@ -884,6 +905,7 @@ h1{color:#321078}
   <button class="node other n6" style="left:76%;top:72%" data-category="other" data-id="problema" data-terms="problema pedido não aparece kds suporte"><span class="ico">!</span><span class="txt"><b>Algo não funcionou?</b><small>Pedido ausente ou falha</small></span><i class="dot"></i></button>
   <button class="node panel-senha n7" style="left:80%;top:17%" data-category="panel" data-id="senha" data-terms="painel de senhas chamar senha novamente restaurar pedido KDS 3 expedição pronto retorno senha"><span class="ico">▦</span><span class="txt"><b>Como chamar novamente a senha no Painel de Senhas?</b><small>Retorne a senha para PRONTO pelo KDS 3</small></span><i class="dot"></i></button>
   <button class="node kds n8" style="left:80%;top:48%" data-category="kds" data-id="restaurar" data-terms="como voltar pedido no KDS 1 KDS 2 baixei sem querer retorno restaurar pedido produção"><span class="ico">↶</span><span class="txt"><b>Como voltar um pedido no KDS?</b><small>Baixei sem querer no KDS 1 ou 2</small></span><i class="dot"></i></button>
+  <button class="node totem-menu n9" style="left:50%;top:89%" data-category="totem" data-id="pausarTotem" data-terms="totem pausar item produto pausar venda indisponível desmarcar coluna totem"><span class="ico">▯</span><span class="txt"><b>Como pausar um item no TOTEM?</b><small>Deixe o produto indisponível somente no TOTEM</small></span><i class="dot"></i></button>
  </section>
  <div class="bottomline"><span>Selecione um ponto para abrir a orientação correspondente.</span><span>Allan Vale Services &amp; Ops</span></div>
 </main>
@@ -915,6 +937,7 @@ kdsCold:{tag:"KDS 2 • FRIOS",title:"KDS 2 — FRIOS",lead:"Identificação dos
 kdsDispatch:{tag:"KDS 3 • EXPEDIÇÃO",title:"KDS 3 — EXPEDIÇÃO",lead:"Conferência dos itens reunidos na tela de expedição.",steps:[],note:"A tela reúne itens que também aparecem nos KDS 1 e 2, além dos acompanhamentos e da bebida.",media:""},
 restaurar:{tag:"KDS • RESTAURAÇÃO DE PEDIDO",title:"Como Voltar um Pedido no KDS?",lead:"Baixei sem querer, preciso voltar, como fazer?",steps:["Clique no botão de retorno que fica ao lado da lupa.","Confirme a restauração do pedido.","Restaure o pedido.","Finalize a restauração."],note:"Siga a sequência demonstrada nos GIFs para retornar o pedido baixado por engano."},
 senha:{tag:"PAINEL DE SENHAS • KDS 3",title:"Como chamar novamente a senha no Painel de Senhas?",lead:"Quando a senha já foi chamada e saiu da faixa PRONTO, é possível devolvê-la ao painel restaurando o pedido exclusivamente pelo KDS 3 — Expedição. Atenção: esta ação não faz uma nova chamada com alerta em tela cheia; ela apenas retorna a senha para a coluna PRONTO.",steps:["No KDS 3 — EXPEDIÇÃO, clique no botão de retorno que fica ao lado da lupa.","Confirme a restauração do pedido.","Clique em RESTAURAR PEDIDO.","Clique em FINALIZAR RESTAURAÇÃO. A senha retorna para a coluna PRONTO no Painel de Senhas."],note:"ATENÇÃO: procedimento exclusivo do KDS 3 — EXPEDIÇÃO. Não execute a restauração pelo KDS 1 — QUENTE ou KDS 2 — FRIOS. A primeira chamada da senha exibe o alerta visual em tela cheia; ao chamar novamente, a restauração apenas devolve a senha à coluna PRONTO.",media:"DEMONSTRAÇÃO • RESTAURAR PEDIDO NO KDS 3 E RETORNAR A SENHA PARA PRONTO"},
+pausarTotem:{tag:"TOTEM • PAUSAR ITEM",title:"Como pausar um item no TOTEM?",lead:"Use esta orientação para deixar um produto temporariamente indisponível somente no canal TOTEM, sem alterar os demais canais de venda.",steps:["No PDV, clique na CAIXA DE FERRAMENTAS, na barra inferior.","Com o menu de Funções aberto, clique na seta para baixo para exibir as opções seguintes.","Selecione a função 36 — PAUSAR VENDA.","Pesquise o produto e localize o item na lista.","Desmarque somente a coluna TOTEM e clique em CONFIRMAR. Mantenha os demais canais como estão."],note:"Atenção: retire a seleção somente da coluna TOTEM. Não altere os demais canais de venda."},
 problema:{tag:"SITUAÇÃO ESPECIAL",title:"Meu pedido não aparece ou algo não funcionou",lead:"Esta área será preenchida com os procedimentos de diagnóstico que forem validados pela operação e pelo suporte SW.",steps:["Identifique em qual equipamento o problema ocorreu: PDV, KDS ou painel de senhas.","Registre a senha do pedido e o que está aparecendo na tela.","Não repita lançamentos ou confirmações sem validar a situação para evitar duplicidade.","Acione o suporte conforme o procedimento definido pela operação."],note:"Orientação provisória: o procedimento detalhado de diagnóstico ainda será construído. Não execute ações corretivas não validadas.",media:"ESPAÇO PARA ÁRVORE DE DIAGNÓSTICO • PRINTS DE ERROS"}
 };
 function openTopic(id){
@@ -1029,7 +1052,30 @@ function openTopic(id){
     </section>`;
    document.getElementById("mediaSlot").innerHTML="";
    document.getElementById("mediaSlot").style.display="none";
- }else if(id==="dinheiro"){
+ }else if(id==="pausarTotem"){
+   const pauseSteps=[
+    ["No PDV, clique na CAIXA DE FERRAMENTAS, na barra inferior.","01_Caixa_de_Ferramentas_TOTEM.gif","Demonstração: localizar e clicar na Caixa de Ferramentas do PDV."],
+    ["Com o menu de Funções aberto, clique na seta para baixo para exibir as opções seguintes.","02_Seta_Para_Baixo_TOTEM.gif","Demonstração: expandir as opções do menu de Funções."],
+    ["Selecione a função 36 — PAUSAR VENDA.","03_Selecionar_Pausar_Venda_TOTEM.gif","Demonstração: selecionar a função 36 — Pausar Venda."],
+    ["Pesquise o produto e localize o item na lista.","04_Pesquisar_Produto_TOTEM.gif","Demonstração: pesquisar e localizar o produto."],
+    ["Desmarque somente a coluna TOTEM e clique em CONFIRMAR. Mantenha os demais canais como estão.","05_Desmarcar_TOTEM_Confirmar.gif","Demonstração: desmarcar apenas TOTEM e confirmar."]
+   ];
+   stepsEl.innerHTML=pauseSteps.map((item,i)=>`
+    <div class="step-row"><div class="num">${i+1}</div><div><b>Etapa ${i+1}</b><p>${item[0]}</p>
+      <div class="step-gif-slot step-gif-ready">
+        <img src="assets/multimidia/${item[1]}" alt="${item[2]}">
+      </div>
+    </div></div>`).join("")+`
+    <section class="complete-video-section" aria-label="Vídeo complementar — Como pausar um item no TOTEM">
+      <div class="complete-video-heading"><span class="complete-video-icon">▶</span><div><b>VÍDEO COMPLEMENTAR</b><small>Assista à demonstração completa de pausa de produto no TOTEM</small></div></div>
+      <div class="complete-video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/s0cQNZE1GOw" title="Como pausar um item no TOTEM — vídeo complementar" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <p class="totem-video-link"><a href="https://youtu.be/s0cQNZE1GOw" target="_blank" rel="noopener noreferrer">Abrir vídeo no YouTube</a></p>
+    </section>`;
+   document.getElementById("mediaSlot").innerHTML="";
+   document.getElementById("mediaSlot").style.display="none";
+   }else if(id==="dinheiro"){
    stepsEl.innerHTML=`
     <div class="step-row"><div class="num">1</div><div><b>Etapa 1</b><p>${d.steps[0]}</p></div></div>
     <div class="step-row"><div class="num">2</div><div><b>Etapa 2</b><p>${d.steps[1]}</p>
@@ -1100,7 +1146,8 @@ const connectorDefs=[
  {id:"kds", selector:'.node[data-id="kds"]'},
  {id:"senha", selector:'.node[data-id="senha"]'},
  {id:"restaurar", selector:'.node[data-id="restaurar"]'},
- {id:"problema", selector:'.node[data-id="problema"]'}
+ {id:"problema", selector:'.node[data-id="problema"]'},
+ {id:"pausarTotem", selector:'.node[data-id="pausarTotem"]'}
 ];
 function connectorPoint(from,to){
  const dx=to.x-from.x, dy=to.y-from.y;

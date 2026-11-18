@@ -49,3 +49,11 @@ Abra `index.html` em servidor local ou publique no GitHub Pages para testar os v
 - As linhas são guias visuais, não áreas clicáveis; os próprios cartões continuam sendo os controles.
 - Ao recolher os menus, as linhas são removidas; ao expandir, são recalculadas e reaparecem conectadas aos cartões.
 - O menu de chamada novamente foi classificado como **Painel**, com destaque vermelho, e renomeado para **Como chamar novamente a senha no Painel de Senhas?**
+
+
+## Novo menu — Como pausar um item no TOTEM
+- Classificação do menu: **TOTEM**, com cor verde-água conforme a legenda.
+- Sequência com cinco GIFs: Caixa de Ferramentas; seta para baixo; função 36 — Pausar Venda; pesquisa do produto; desmarcar somente a coluna TOTEM e confirmar.
+- A etapa de operador e senha não faz parte desta orientação.
+- A instrução reforça que os demais canais devem permanecer inalterados.
+- Vídeo complementar ao final: https://youtu.be/s0cQNZE1GOw
