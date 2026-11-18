@@ -222,12 +222,12 @@ h1{color:#321078}
  .system-legend{position:relative;top:auto;right:auto;order:1;display:flex;flex-wrap:wrap;justify-content:center;border-radius:16px;padding:8px;gap:5px}
  .system-legend>b{width:100%;text-align:center;margin:0 0 2px}
  .map-canvas{display:none}
- .hub{position:relative;top:auto;left:auto;transform:none;order:2;align-self:center;width:158px;height:158px;margin:12px auto 10px;flex-shrink:0}
+ .hub{position:relative;top:auto;left:auto;transform:none;order:2;align-self:center;width:158px;height:158px;margin:12px auto 10px;flex-shrink:0;z-index:2!important}
  .hub-icon{width:48px;height:48px;border-radius:15px;margin-bottom:7px}
  .hub-icon svg{width:36px;height:36px}
  .hub b{font-size:12px}
  .hub small{font-size:8px}
- .node{position:relative;top:auto!important;left:auto!important;transform:none;width:100%;min-height:78px;margin:0;order:3;border-radius:15px;padding:11px 13px}
+ .node{position:relative;top:auto!important;left:auto!important;transform:none;width:100%;min-height:78px;margin:0;order:4;border-radius:15px;padding:11px 13px}
  .node:hover,.node:focus-visible{transform:translateY(-2px)}
  .node .ico{width:38px;height:38px;flex-basis:38px}
  .node .txt b{font-size:11px}
@@ -810,6 +810,7 @@ h1{color:#321078}
   .hub small { font-size: 8px !important; }
 
   /* Mesmo acabamento claro do desktop para o card principal do KDS. */
+  .node.support-entry{transform:none!important;border-color:#ef4444!important;background:linear-gradient(135deg,#fff 0%,#ffe8e8 100%)!important}
   .node.kds-guide {
     background: linear-gradient(145deg, #ffffff 0%, #f4ecfb 100%) !important;
     border: 1px solid #63397e !important;
@@ -917,17 +918,18 @@ h1{color:#321078}
  .tour-drawer-active .drawer{width:min(650px,82vw)!important}
 }
 
-/* Entrada de suporte: destaque visual forte no mapa, sem competir com o núcleo */
+/* Entrada de suporte: identidade exclusiva em coral, distinta das cores da legenda */
 .node.support-entry{
- border:2px solid #d97706!important;
- background:linear-gradient(135deg,#fffdf5 0%,#fff0c2 100%)!important;
- box-shadow:0 0 0 5px #f59e0b22,0 12px 30px #b453092b!important;
+ --support-accent:#ef4444;
+ border:2px solid #ef4444!important;
+ background:linear-gradient(135deg,#fff 0%,#ffe8e8 100%)!important;
+ box-shadow:0 0 0 5px #ef444422,0 12px 30px #b91c1c2b!important;
  transform:translateZ(0) scale(1.035);
 }
-.node.support-entry .ico{background:#ffdf8a!important;color:#8a4b08!important;border:1px solid #e9a52c!important}
-.node.support-entry .txt b{color:#78350f!important;font-weight:900!important}
-.node.support-entry .txt small{color:#925d16!important;font-weight:700!important}
-.node.support-entry .dot{background:#f59e0b!important;box-shadow:0 0 0 5px #f59e0b25,0 0 16px #f59e0b99!important}
+.node.support-entry .ico{background:#ffd6d6!important;color:#b91c1c!important;border:1px solid #ef444455!important}
+.node.support-entry .txt b{color:#991b1b!important;font-weight:900!important}
+.node.support-entry .txt small{color:#a33b3b!important;font-weight:700!important}
+.node.support-entry .dot{background:#ef4444!important;box-shadow:0 0 0 5px #ef444425,0 0 16px #ef444499!important}
 .support-intro{display:grid;gap:12px;margin:4px 0 18px}
 .support-step{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid #e9ddf4;border-radius:14px;background:#fbf8ff}
 .support-step-icon{display:grid;place-items:center;flex:0 0 28px;height:28px;border-radius:50%;background:#eee3fb;color:#55218b;font-weight:900}
@@ -979,7 +981,9 @@ h1{color:#321078}
 .map-shell.prep-running .hub{z-index:36!important}
 .map-shell.prep-running .prep-launch{display:none!important}
 @media(max-width:760px){
- .prep-launch{position:relative;order:3;top:auto;left:auto;transform:none;margin:0 auto 5px;z-index:35;font-size:10px;padding:9px 14px}
+ .overlay{z-index:100!important}
+ .overlay.open{z-index:100!important}
+ .prep-launch{position:relative;order:3;top:auto;left:auto;transform:none;margin:0 auto 5px;z-index:4;font-size:10px;padding:9px 14px;max-width:100%;white-space:nowrap}
  .prep-launch:hover{transform:translateY(-2px)}
  .prep-stage{position:absolute;top:51%;width:min(88vw,390px);max-width:390px;z-index:34}
  .prep-point{width:112px;min-height:88px;padding:7px 5px;border-radius:14px;gap:3px}
