@@ -872,6 +872,50 @@ h1{color:#321078}
 }
 .totem-video-link{margin:8px 0 0;text-align:center;font-size:11px;font-weight:800}
 .totem-video-link a{color:#078b82;text-decoration:underline;text-underline-offset:3px}
+
+
+/* Tutorial inicial: drawer sempre dentro da viewport e foco preciso na etapa com GIF */
+.tour-drawer-active .drawer{
+ box-sizing:border-box!important;
+ min-width:0!important;
+ max-width:100vw!important;
+ overflow-x:hidden!important;
+}
+.tour-drawer-active .drawer-head,
+.tour-drawer-active .drawer-content,
+.tour-drawer-active .steps,
+.tour-drawer-active .step-row,
+.tour-drawer-active .step-row>div{
+ min-width:0!important;
+ max-width:100%!important;
+ box-sizing:border-box!important;
+}
+.tour-drawer-active .drawer h2,
+.tour-drawer-active .drawer-head p,
+.tour-drawer-active .step-row p{
+ overflow-wrap:anywhere;
+}
+.tour-drawer-active .step-row:nth-child(2) .step-gif-slot{
+ width:100%;
+ max-width:100%;
+ box-sizing:border-box;
+}
+@media(max-width:760px){
+ .tour-drawer-active .drawer{
+  width:100vw!important;
+  max-width:100vw!important;
+  height:100dvh!important;
+  margin:0!important;
+  border-radius:0!important;
+ }
+ .tour-drawer-active .overlay{align-items:stretch!important}
+ .tour-drawer-active .drawer-head{padding:17px 18px!important}
+ .tour-drawer-active .drawer-content{padding:17px 18px 25px!important}
+ .tour-drawer-active .drawer h2{font-size:clamp(20px,5vw,25px)!important}
+}
+@media(min-width:761px) and (max-width:1100px){
+ .tour-drawer-active .drawer{width:min(650px,82vw)!important}
+}
 </style></head>
 <body>
 <div class="app">
@@ -1289,8 +1333,8 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer()});
 const tutorialSteps = [
  {title:"Passo 1 — Legenda por sistema",text:"Observe a legenda no alto do mapa. Cada cor identifica um sistema: Pagamento, PDV, KDS, Painel, Totem ou Outros. A mesma cor pode aparecer em vários menus.",target:".system-legend",button:"Avançar"},
  {title:"Passo 2 — Selecione um menu",text:"Agora veja um dos menus destacado. Cada opção representa uma situação ou tarefa. Clique ou toque em qualquer menu para abrir sua orientação.",target:".node",button:"Avançar"},
- {title:"Passo 3 — Veja a orientação",text:"Ao selecionar um menu, este painel apresenta o assunto, uma explicação e as etapas para realizar a tarefa. Use o X ou “Voltar ao mapa” para retornar.",target:".drawer",button:"Avançar"},
- {title:"Passo 4 — Consulte as etapas",text:"Leia as instruções na ordem apresentada. Os espaços de mídia poderão mostrar prints, GIFs e vídeos. Você pode abrir este tutorial novamente pelo botão “Como funciona?”.",target:".drawer",button:"Concluir"}
+ {title:"Passo 3 — Abra um menu de orientação",text:"Veja como o menu fica aberto: ele mostra o título, uma explicação e as etapas da operação. O painel desliza pela lateral e pode ser fechado pelo X ou por “Voltar ao mapa”.",target:".drawer",button:"Avançar"},
+ {title:"Passo 4 — Veja uma etapa com GIF",text:"Agora observe apenas esta etapa destacada. O GIF demonstra visualmente a ação que deve ser executada. Cada orientação pode trazer imagens ou GIFs dentro da etapa correspondente.",target:".drawer .step-row:nth-child(2)",button:"Concluir"}
 ]
 let tutorialIndex=0;
 let tutorialOpen=false;
@@ -1305,10 +1349,14 @@ function positionTutorialSpotlight(target){
  const spotlight=document.getElementById("tourSpotlight");
  const rect=target.getBoundingClientRect();
  const pad=5;
- spotlight.style.top=Math.max(6,rect.top-pad)+"px";
- spotlight.style.left=Math.max(6,rect.left-pad)+"px";
- spotlight.style.width=Math.max(0,Math.min(window.innerWidth-12,rect.width+pad*2))+"px";
- spotlight.style.height=Math.max(0,Math.min(window.innerHeight-12,rect.height+pad*2))+"px";
+ const left=Math.max(6,Math.min(window.innerWidth-12,rect.left-pad));
+ const top=Math.max(6,Math.min(window.innerHeight-12,rect.top-pad));
+ const right=Math.max(left,Math.min(window.innerWidth-6,rect.right+pad));
+ const bottom=Math.max(top,Math.min(window.innerHeight-6,rect.bottom+pad));
+ spotlight.style.top=top+"px";
+ spotlight.style.left=left+"px";
+ spotlight.style.width=(right-left)+"px";
+ spotlight.style.height=(bottom-top)+"px";
  spotlight.classList.add("active");
 }
 function showTutorialStep(index){
@@ -1328,8 +1376,8 @@ function showTutorialStep(index){
  document.getElementById("tourProgress").style.width=((tutorialIndex+1)/tutorialSteps.length*100)+"%";
  document.getElementById("tourBack").style.display=tutorialIndex===0?"none":"inline-block";
  document.getElementById("tourNext").textContent=tutorialIndex===0?"Começar":(tutorialIndex===tutorialSteps.length-1?"Concluir":"Próximo");
- if(target && tutorialIndex<2){
-   target.scrollIntoView({behavior:"auto",block:"center",inline:"center"});
+ if(target && (tutorialIndex<2 || tutorialIndex===3)){
+   target.scrollIntoView({behavior:"auto",block:"center",inline:"nearest"});
  }
  requestAnimationFrame(()=>positionTutorialSpotlight(target));
 }
