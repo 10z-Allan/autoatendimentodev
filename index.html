@@ -916,6 +916,85 @@ h1{color:#321078}
 @media(min-width:761px) and (max-width:1100px){
  .tour-drawer-active .drawer{width:min(650px,82vw)!important}
 }
+
+/* Entrada de suporte: destaque visual forte no mapa, sem competir com o núcleo */
+.node.support-entry{
+ border:2px solid #d97706!important;
+ background:linear-gradient(135deg,#fffdf5 0%,#fff0c2 100%)!important;
+ box-shadow:0 0 0 5px #f59e0b22,0 12px 30px #b453092b!important;
+ transform:translateZ(0) scale(1.035);
+}
+.node.support-entry .ico{background:#ffdf8a!important;color:#8a4b08!important;border:1px solid #e9a52c!important}
+.node.support-entry .txt b{color:#78350f!important;font-weight:900!important}
+.node.support-entry .txt small{color:#925d16!important;font-weight:700!important}
+.node.support-entry .dot{background:#f59e0b!important;box-shadow:0 0 0 5px #f59e0b25,0 0 16px #f59e0b99!important}
+.support-intro{display:grid;gap:12px;margin:4px 0 18px}
+.support-step{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid #e9ddf4;border-radius:14px;background:#fbf8ff}
+.support-step-icon{display:grid;place-items:center;flex:0 0 28px;height:28px;border-radius:50%;background:#eee3fb;color:#55218b;font-weight:900}
+.support-step b{display:block;color:#321078;font-size:13px}
+.support-step p{margin:4px 0 0;color:#71657c;font-size:12px;line-height:1.45}
+.support-contact-card{border:1px solid #d8c6eb;border-radius:17px;padding:15px;margin:12px 0;background:linear-gradient(145deg,#fff,#fbf7ff);box-shadow:0 8px 22px #3210780d}
+.support-contact-head{display:flex;align-items:center;gap:11px}
+.support-contact-head b{display:block;color:#321078;font-size:14px}
+.support-contact-head small{display:block;color:#776b82;font-size:11px;margin-top:3px}
+.support-whatsapp-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;font-size:22px;font-weight:900}
+.support-whatsapp-mark{background:#dcfce7;color:#128c4a}
+.support-contact-card>p{font-size:12px;color:#71657c;line-height:1.5;margin:12px 0}
+.support-action{display:flex;justify-content:space-between;align-items:center;gap:12px;text-decoration:none!important;padding:13px 15px;border-radius:12px;color:white!important;box-shadow:0 5px 14px #00000012;transition:transform .18s ease,filter .18s ease}
+.support-action:hover{transform:translateY(-1px);filter:brightness(1.04)}
+.support-action b,.support-action small{display:block;color:white!important}
+.support-action b{font-size:13px}
+.support-action small{font-size:10px;opacity:.88;margin-top:3px}
+.support-whatsapp{background:linear-gradient(110deg,#159b58,#087b48)}
+.support-arrow{font-size:20px;font-weight:900}
+
+
+/* ===== APRESENTAÇÃO: PREPARAÇÃO DA LOJA ===== */
+.prep-launch{position:absolute;left:50%;top:112px;transform:translateX(-50%);z-index:35;border:1px solid #d9c3ed;border-radius:999px;padding:10px 18px;background:linear-gradient(135deg,#fff,#f4eaff);color:#512b78;font-size:11px;font-weight:900;letter-spacing:.035em;box-shadow:0 8px 24px #32107818;display:flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s}
+.prep-launch:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 12px 28px #32107828}
+.prep-launch .play{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#7935d1;color:white;font-size:10px}
+.prep-stage{display:none;position:absolute;z-index:34;left:50%;top:55%;width:min( min(76vw,560px), 68vh);aspect-ratio:1/1;transform:translate(-50%,-50%);pointer-events:none}
+.prep-stage.active{display:block}
+.prep-ring{position:absolute;inset:4%;border:2px dashed #b99acb;border-radius:50%;box-shadow:0 0 0 9px #7935d10a, inset 0 0 35px #7935d10a;animation:prepRing 24s linear infinite}
+@keyframes prepRing{to{transform:rotate(360deg)}}
+.prep-point{position:absolute;width:154px;min-height:106px;padding:10px 9px;border-radius:17px;background:#ffffffef;border:2px solid var(--prep-color);color:#321078;box-shadow:0 10px 28px #3210781c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-align:center;opacity:.3;transform:scale(.92);transition:opacity .35s,transform .35s,box-shadow .35s;pointer-events:none}
+.prep-point .prep-art{width:44px;height:44px;display:grid;place-items:center;color:var(--prep-color)}
+.prep-point .prep-art svg{width:42px;height:42px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.prep-point b{font-size:12px;line-height:1.2}.prep-point small{font-size:9px;color:#766982}
+.prep-point.active{opacity:1;transform:scale(1.04);box-shadow:0 0 0 5px color-mix(in srgb,var(--prep-color) 17%,transparent),0 14px 32px #32107825;animation:prepPulse 1.8s ease-in-out infinite}
+@keyframes prepPulse{0%,100%{filter:brightness(1);box-shadow:0 0 0 4px color-mix(in srgb,var(--prep-color) 13%,transparent),0 12px 28px #32107820}50%{filter:brightness(1.04);box-shadow:0 0 0 10px color-mix(in srgb,var(--prep-color) 20%,transparent),0 15px 35px #3210782a}}
+.prep-point.cpu{--prep-color:#7935d1;left:50%;top:0;transform:translate(-50%,-12%) scale(.92)}
+.prep-point.cpu.active{transform:translate(-50%,-12%) scale(1.04)}
+.prep-point.totem{--prep-color:#078b82;right:0;top:50%;transform:translate(12%,-50%) scale(.92)}
+.prep-point.totem.active{transform:translate(12%,-50%) scale(1.04)}
+.prep-point.kds{--prep-color:#6040cf;left:50%;bottom:0;transform:translate(-50%,12%) scale(.92)}
+.prep-point.kds.active{transform:translate(-50%,12%) scale(1.04)}
+.prep-point.panel{--prep-color:#ed168f;left:0;top:50%;transform:translate(-12%,-50%) scale(.92)}
+.prep-point.panel.active{transform:translate(-12%,-50%) scale(1.04)}
+.prep-controls{position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;white-space:nowrap;pointer-events:auto}
+.prep-status{font-size:10px;font-weight:800;color:#604779;background:#fff;padding:7px 11px;border-radius:99px;box-shadow:0 4px 14px #32107812}
+.prep-stop{border:1px solid #e5d9ee;background:#fff;color:#604779;border-radius:99px;padding:7px 11px;font-size:10px;font-weight:800}
+.map-shell.prep-running .node{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+.map-shell.prep-running .connector-visible{opacity:0!important}
+.map-shell.prep-running .hub{z-index:36!important}
+.map-shell.prep-running .prep-launch{display:none!important}
+@media(max-width:760px){
+ .prep-launch{position:relative;order:3;top:auto;left:auto;transform:none;margin:0 auto 5px;z-index:35;font-size:10px;padding:9px 14px}
+ .prep-launch:hover{transform:translateY(-2px)}
+ .prep-stage{position:absolute;top:51%;width:min(88vw,390px);max-width:390px;z-index:34}
+ .prep-point{width:112px;min-height:88px;padding:7px 5px;border-radius:14px;gap:3px}
+ .prep-point .prep-art,.prep-point .prep-art svg{width:34px;height:34px}
+ .prep-point b{font-size:10px}.prep-point small{font-size:8px}
+ .prep-point.cpu{transform:translate(-50%,-8%) scale(.92)}.prep-point.cpu.active{transform:translate(-50%,-8%) scale(1.03)}
+ .prep-point.totem{transform:translate(8%,-50%) scale(.92)}.prep-point.totem.active{transform:translate(8%,-50%) scale(1.03)}
+ .prep-point.kds{transform:translate(-50%,8%) scale(.92)}.prep-point.kds.active{transform:translate(-50%,8%) scale(1.03)}
+ .prep-point.panel{transform:translate(-8%,-50%) scale(.92)}.prep-point.panel.active{transform:translate(-8%,-50%) scale(1.03)}
+ .prep-controls{bottom:-27px;gap:6px}.prep-status{font-size:9px;padding:6px 8px}.prep-stop{font-size:9px;padding:6px 8px}
+ .map-shell.prep-running{min-height:560px!important;height:560px!important;overflow:hidden!important}
+ .map-shell.prep-running .hub{position:absolute!important;left:50%!important;top:51%!important;transform:translate(-50%,-50%)!important;margin:0!important;order:initial!important}
+}
+@media(prefers-reduced-motion:reduce){.prep-ring,.prep-point.active{animation:none!important}}
+
 </style></head>
 <body>
 <div class="app">
@@ -937,6 +1016,15 @@ h1{color:#321078}
     <g class="connector-hit"></g>
   </svg>
   <button class="hub" id="hubToggle" type="button" aria-label="Recolher ou expandir menus" aria-expanded="true" title="Recolher ou expandir menus"><div class="hub-icon"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 18 24 10 40 18 56 10v36l-16 8-16-8-16 8z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/><path d="M24 10v36M40 18v36" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M44 8c-7 0-12 5.3-12 12 0 8.5 12 21 12 21s12-12.5 12-21c0-6.7-5-12-12-12z" fill="#ed168f" stroke="#fff" stroke-width="2.5"/><circle cx="44" cy="20" r="4" fill="#fff"/></svg></div><b>MAPA DE AJUDA</b><small id="hubHint">Clique para recolher os menus</small></button>
+  <button class="prep-launch" id="prepLaunch" type="button"><span class="play">▶</span> PREPARAÇÃO DA LOJA</button>
+  <div class="prep-stage" id="prepStage" aria-live="polite" aria-label="Apresentação da preparação da loja">
+   <div class="prep-ring"></div>
+   <div class="prep-point cpu" data-prep-step="0"><span class="prep-art"><svg viewBox="0 0 48 48"><rect x="11" y="5" width="26" height="38" rx="4"/><path d="M17 12h14v12H17zM17 30h3m5 0h6M20 37h8"/><circle cx="24" cy="28" r="1"/></svg></span><b>Caixa servidor</b><small>1º • Ligar o servidor</small></div>
+   <div class="prep-point totem" data-prep-step="1"><span class="prep-art"><svg viewBox="0 0 48 48"><rect x="12" y="3" width="24" height="34" rx="3"/><path d="M16 8h16v21H16zM20 37v6m8-6v6m-11 0h14"/><circle cx="24" cy="33" r="1"/></svg></span><b>Totens</b><small>2º • Ligar os totens</small></div>
+   <div class="prep-point kds" data-prep-step="2"><span class="prep-art"><svg viewBox="0 0 48 48"><rect x="3" y="7" width="19" height="27" rx="2"/><rect x="26" y="7" width="19" height="27" rx="2"/><path d="M8 13h9M8 18h9M31 13h9M31 18h9M12 34v6m-5 0h10m18-6v6m-5 0h10"/></svg></span><b>KDS</b><small>3º • Ligar os monitores</small></div>
+   <div class="prep-point panel" data-prep-step="3"><span class="prep-art"><svg viewBox="0 0 48 48"><rect x="5" y="5" width="38" height="28" rx="3"/><path d="M10 11h28M12 17h10m4 0h10M12 23h7m5 0h12M19 33v7m10-7v7m-15 0h30"/><path d="M18 27h12"/></svg></span><b>Painel de Senhas</b><small>4º • Ligar o painel</small></div>
+   <div class="prep-controls"><span class="prep-status" id="prepStatus">Etapa 1 de 4</span><button class="prep-stop" id="prepStop" type="button">Encerrar apresentação</button></div>
+  </div>
   <button class="node kds kds-guide" style="left:19%;top:50%" data-category="kds" data-id="kdsGuide" aria-expanded="false" aria-controls="kdsSubnodes" data-terms="o que aparece KDS quente frios expedição itens repetidos sanduíche montagem"><span class="ico">☷</span><span class="txt"><b>O QUE APARECE NO KDS?</b><small>Clique para ver as três telas</small></span><i class="dot"></i></button>
 <div class="kds-subnodes" id="kdsSubnodes" aria-hidden="true">
    <button class="node kds-subnode hot" data-kds-sub="hot"><span class="subnum">1</span><span class="subtxt">KDS 1 — QUENTE</span></button>
@@ -946,7 +1034,7 @@ h1{color:#321078}
   <button class="node money n1" style="left:24%;top:17%" data-category="payment" data-id="dinheiro" data-terms="dinheiro pagamento dinheiro totem balcão pendente receber"><span class="ico">＄</span><span class="txt"><b>Pedido em dinheiro</b><small>Onde encontrar e como receber?</small></span><i class="dot"></i></button>
   <button class="node kds n3" style="left:19%;top:77%" data-category="kds" data-id="kds" data-terms="kds produção não pago liberar produção"><span class="ico">▤</span><span class="txt"><b>Como baixar o Pedido no KDS?</b><small>Etapas de baixa do pedido</small></span><i class="dot"></i></button>
 
-  <button class="node other n6" style="left:76%;top:72%" data-category="other" data-id="problema" data-terms="problema pedido não aparece kds suporte"><span class="ico">!</span><span class="txt"><b>Algo não funcionou?</b><small>Pedido ausente ou falha</small></span><i class="dot"></i></button>
+  <button class="node support-entry n6" style="left:76%;top:72%" data-category="other" data-id="problema" data-terms="problema suporte SW dispositivos whatsapp"><span class="ico">🎧</span><span class="txt"><b>Algo não funcionou?</b><small>Problemas com os dispositivos • Falar com o suporte SW</small></span><i class="dot"></i></button>
   <button class="node panel-senha n7" style="left:80%;top:17%" data-category="panel" data-id="senha" data-terms="painel de senhas chamar senha novamente restaurar pedido KDS 3 expedição pronto retorno senha"><span class="ico">▦</span><span class="txt"><b>Como chamar novamente a senha no Painel de Senhas?</b><small>Retorne a senha para PRONTO pelo KDS 3</small></span><i class="dot"></i></button>
   <button class="node kds n8" style="left:80%;top:48%" data-category="kds" data-id="restaurar" data-terms="como voltar pedido no KDS 1 KDS 2 baixei sem querer retorno restaurar pedido produção"><span class="ico">↶</span><span class="txt"><b>Como voltar um pedido no KDS?</b><small>Baixei sem querer no KDS 1 ou 2</small></span><i class="dot"></i></button>
   <button class="node totem-menu n9" style="left:50%;top:89%" data-category="totem" data-id="pausarTotem" data-terms="totem pausar item produto pausar venda indisponível desmarcar coluna totem"><span class="ico">▯</span><span class="txt"><b>Como pausar um item no TOTEM?</b><small>Deixe o produto indisponível somente no TOTEM</small></span><i class="dot"></i></button>
@@ -982,7 +1070,7 @@ kdsDispatch:{tag:"KDS 3 • EXPEDIÇÃO",title:"KDS 3 — EXPEDIÇÃO",lead:"Con
 restaurar:{tag:"KDS • RESTAURAÇÃO DE PEDIDO",title:"Como Voltar um Pedido no KDS?",lead:"Baixei sem querer, preciso voltar, como fazer?",steps:["Clique no botão de retorno que fica ao lado da lupa.","Confirme a restauração do pedido.","Restaure o pedido.","Finalize a restauração."],note:"Siga a sequência demonstrada nos GIFs para retornar o pedido baixado por engano."},
 senha:{tag:"PAINEL DE SENHAS • KDS 3",title:"Como chamar novamente a senha no Painel de Senhas?",lead:"Quando a senha já foi chamada e saiu da faixa PRONTO, é possível devolvê-la ao painel restaurando o pedido exclusivamente pelo KDS 3 — Expedição. Atenção: esta ação não faz uma nova chamada com alerta em tela cheia; ela apenas retorna a senha para a coluna PRONTO.",steps:["No KDS 3 — EXPEDIÇÃO, clique no botão de retorno que fica ao lado da lupa.","Confirme a restauração do pedido.","Clique em RESTAURAR PEDIDO.","Clique em FINALIZAR RESTAURAÇÃO. A senha retorna para a coluna PRONTO no Painel de Senhas."],note:"ATENÇÃO: procedimento exclusivo do KDS 3 — EXPEDIÇÃO. Não execute a restauração pelo KDS 1 — QUENTE ou KDS 2 — FRIOS. A primeira chamada da senha exibe o alerta visual em tela cheia; ao chamar novamente, a restauração apenas devolve a senha à coluna PRONTO.",media:"DEMONSTRAÇÃO • RESTAURAR PEDIDO NO KDS 3 E RETORNAR A SENHA PARA PRONTO"},
 pausarTotem:{tag:"TOTEM • PAUSAR ITEM",title:"Como pausar um item no TOTEM?",lead:"Use esta orientação para deixar um produto temporariamente indisponível somente no canal TOTEM, sem alterar os demais canais de venda.",steps:["No PDV, clique na CAIXA DE FERRAMENTAS, na barra inferior.","Com o menu de Funções aberto, clique na seta para baixo para exibir as opções seguintes.","Selecione a função 36 — PAUSAR VENDA.","Pesquise o produto e localize o item na lista.","Desmarque somente a coluna TOTEM e clique em CONFIRMAR. Mantenha os demais canais como estão."],note:"Atenção: retire a seleção somente da coluna TOTEM. Não altere os demais canais de venda."},
-problema:{tag:"SITUAÇÃO ESPECIAL",title:"Meu pedido não aparece ou algo não funcionou",lead:"Esta área será preenchida com os procedimentos de diagnóstico que forem validados pela operação e pelo suporte SW.",steps:["Identifique em qual equipamento o problema ocorreu: PDV, KDS ou painel de senhas.","Registre a senha do pedido e o que está aparecendo na tela.","Não repita lançamentos ou confirmações sem validar a situação para evitar duplicidade.","Acione o suporte conforme o procedimento definido pela operação."],note:"Orientação provisória: o procedimento detalhado de diagnóstico ainda será construído. Não execute ações corretivas não validadas.",media:"ESPAÇO PARA ÁRVORE DE DIAGNÓSTICO • PRINTS DE ERROS"}
+problema:{tag:"CENTRAL DE SUPORTE SW",title:"Problemas com os dispositivos?",lead:"Não conseguiu resolver pelo mapa? Fale diretamente com o suporte SW pelo WhatsApp. Informe a loja, o equipamento e o que aconteceu para agilizar o atendimento.",steps:["Identifique o equipamento com problema: PDV, TOTEM, KDS, Painel de Senhas ou periférico.","Se possível, tenha em mãos o CNPJ da loja e uma descrição ou foto do erro.",],note:"O WhatsApp direciona para o número oficial (16) 3101-9300. "}
 };
 function openTopic(id){
  const d=content[id];if(!d)return;
@@ -1117,6 +1205,20 @@ function openTopic(id){
       </div>
       <p class="totem-video-link"><a href="https://youtu.be/s0cQNZE1GOw" target="_blank" rel="noopener noreferrer">Abrir vídeo no YouTube</a></p>
     </section>`;
+   document.getElementById("mediaSlot").innerHTML="";
+   document.getElementById("mediaSlot").style.display="none";
+   }else if(id==="problema"){
+   stepsEl.innerHTML=`
+    <div class="support-intro">
+      <div class="support-step"><span class="support-step-icon">1</span><div><b>Identifique o dispositivo</b><p>PDV, TOTEM, KDS, Painel de Senhas ou periférico.</p></div></div>
+      <div class="support-step"><span class="support-step-icon">2</span><div><b>Tenha os dados da loja</b><p>CNPJ, descrição do problema e, se possível, uma foto da tela.</p></div></div>
+    </div>
+    <section class="support-contact-card">
+      <div class="support-contact-head"><span class="support-whatsapp-mark">✆</span><div><b>Falar pelo WhatsApp</b><small>Atendimento SW • (16) 3101-9300</small></div></div>
+      <p>Abra uma conversa com uma mensagem inicial para informar os dados da loja e do equipamento.</p>
+      <a class="support-action support-whatsapp" href="https://api.whatsapp.com/send?phone=551631019300&text=Ol%C3%A1%2C%20preciso%20de%20suporte%20t%C3%A9cnico%20para%20o%20Autoatendimento%20Subway.%0ACNPJ%20da%20loja%3A%20%0ADispositivo%3A%20%0ADescri%C3%A7%C3%A3o%20do%20problema%3A%20" target="_blank" rel="noopener noreferrer"> <span> <b>Conversar com o suporte</b><small>Abrir WhatsApp</small></span><span class="support-arrow">↗</span></a>
+    </section>
+`;
    document.getElementById("mediaSlot").innerHTML="";
    document.getElementById("mediaSlot").style.display="none";
    }else if(id==="dinheiro"){
@@ -1425,4 +1527,47 @@ document.addEventListener("DOMContentLoaded",function(){
 });
 
 </script>
+
+<script>
+// Apresentação automática e independente dos menus: quatro pontos em percurso circular.
+(function(){
+ const launch=document.getElementById('prepLaunch'), stage=document.getElementById('prepStage');
+ const shell=document.querySelector('.map-shell'), hub=document.getElementById('hubToggle');
+ const points=[...stage.querySelectorAll('.prep-point')], status=document.getElementById('prepStatus');
+ const stop=document.getElementById('prepStop');
+ let timer=null,index=0,running=false;
+ const STEP_MS=4200;
+ function positionStage(){
+   if(!stage.classList.contains('active'))return;
+   const a=shell.getBoundingClientRect(), b=hub.getBoundingClientRect();
+   const cx=b.left+b.width/2-a.left, cy=b.top+b.height/2-a.top;
+   stage.style.left=cx+'px'; stage.style.top=cy+'px';
+ }
+ function showStep(i){
+   index=i; points.forEach((p,n)=>p.classList.toggle('active',n===i));
+   status.textContent='Etapa '+(i+1)+' de 4 • '+['Caixa servidor','Totens','KDS','Painel de Senhas'][i];
+ }
+ function finish(){
+   if(timer){clearInterval(timer);timer=null;} running=false;
+   stage.classList.remove('active');shell.classList.remove('prep-running');
+   points.forEach(p=>p.classList.remove('active'));
+   setAllMenusExpanded(false); scheduleConnectorUpdate();
+ }
+ function advance(){
+   if(index<3)showStep(index+1); else finish();
+ }
+ function start(){
+   if(running)return;
+   closeDrawer();setAllMenusExpanded(false);
+   const box=document.getElementById('kdsSubnodes'); if(box.classList.contains('visible'))toggleKdsSubnodes(false);
+   shell.classList.add('prep-running');stage.classList.add('active');running=true;
+   requestAnimationFrame(()=>{positionStage();showStep(0);});
+   timer=setInterval(advance,STEP_MS);
+ }
+ launch.addEventListener('click',start); stop.addEventListener('click',finish);
+ window.addEventListener('resize',positionStage);
+ hub.addEventListener('click',()=>{if(running)finish();});
+})();
+</script>
+
 </body></html>

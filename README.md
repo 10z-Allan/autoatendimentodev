@@ -57,3 +57,14 @@ Abra `index.html` em servidor local ou publique no GitHub Pages para testar os v
 - A etapa de operador e senha não faz parte desta orientação.
 - A instrução reforça que os demais canais devem permanecer inalterados.
 - Vídeo complementar ao final: https://youtu.be/s0cQNZE1GOw
+
+
+## Central de suporte — botão Algo não funcionou?
+- O ponto **Algo não funcionou?** recebeu destaque visual em amarelo/âmbar para ser facilmente encontrado no mapa.
+- Ao abrir, apresenta somente o contato pelo WhatsApp SW no número (16) 3101-9300. Não há opção de abertura de chamado pelo Zendesk.
+- O WhatsApp abre com mensagem inicial preenchida para CNPJ, dispositivo e descrição do problema.
+- Links abrem em nova aba/janela; nenhuma integração de API foi criada.
+
+
+## Preparação da Loja
+Foi adicionada uma apresentação automática acionada pelo botão “PREPARAÇÃO DA LOJA”. Ela recolhe os menus e percorre quatro etapas ao redor do botão central: Caixa servidor (PDV/roxo), Totens (verde-água), KDS (roxo-azulado) e Painel de Senhas (rosa). Cada etapa pulsa suavemente por cerca de 4,2 segundos antes de avançar. A apresentação pode ser encerrada pelo botão próprio; ao finalizar, os menus permanecem recolhidos.
