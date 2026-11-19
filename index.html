@@ -270,9 +270,9 @@ h1{color:#321078}
 
 /* Guided first-use tutorial */
 .tour-shade{display:none!important}
-.tour-spotlight{position:fixed;display:none;z-index:1001;border:3px solid #ed168f;border-radius:16px;pointer-events:none;box-shadow:0 0 0 5px rgba(237,22,143,.22),0 0 0 9999px rgba(28,10,48,.62),0 10px 35px rgba(35,8,72,.25);transition:top .25s ease,left .25s ease,width .25s ease,height .25s ease}
-.tour-spotlight.active{display:block}
 .tour-drawer-active .overlay{z-index:1000!important;background:transparent!important;backdrop-filter:none!important}
+.tour-spotlight{box-sizing:border-box;position:fixed;display:none;z-index:1001;border:3px solid #ed168f;border-radius:16px;pointer-events:none;box-shadow:0 0 0 5px rgba(237,22,143,.22),0 0 0 9999px rgba(28,10,48,.62),0 10px 35px rgba(35,8,72,.25);transition:top .25s ease,left .25s ease,width .25s ease,height .25s ease}
+.tour-spotlight.active{display:block}
 .tour-card{position:fixed;z-index:1002;left:50%;bottom:28px;transform:translateX(-50%);width:min(520px,calc(100vw - 28px));padding:21px 22px 17px;border:1px solid #eadcf3;border-radius:20px;background:linear-gradient(145deg,#fff 0%,#fbf7fe 100%);box-shadow:0 22px 70px rgba(20,5,42,.35);color:#29104f;display:none}
 .tour-card.active{display:block;animation:tourIn .2s ease-out}
 @keyframes tourIn{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translate(-50%,0)}}
@@ -896,11 +896,6 @@ h1{color:#321078}
 .tour-drawer-active .step-row p{
  overflow-wrap:anywhere;
 }
-.tour-drawer-active .step-row:nth-child(2) .step-gif-slot{
- width:100%;
- max-width:100%;
- box-sizing:border-box;
-}
 @media(max-width:760px){
  .tour-drawer-active .drawer{
   width:100vw!important;
@@ -951,6 +946,11 @@ h1{color:#321078}
 .support-arrow{font-size:20px;font-weight:900}
 
 
+
+/* Preparação da loja: o acesso aparece somente quando o mapa está livre para interação. */
+body.drawer-open .prep-launch,
+body.tutorial-open .prep-launch,
+.map-shell.prep-running .prep-launch{display:none!important}
 /* ===== APRESENTAÇÃO: PREPARAÇÃO DA LOJA ===== */
 .prep-launch{position:absolute;left:50%;top:112px;transform:translateX(-50%);z-index:35;border:1px solid #d9c3ed;border-radius:999px;padding:10px 18px;background:linear-gradient(135deg,#fff,#f4eaff);color:#512b78;font-size:11px;font-weight:900;letter-spacing:.035em;box-shadow:0 8px 24px #32107818;display:flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s}
 .prep-launch:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 12px 28px #32107828}
@@ -1025,8 +1025,8 @@ h1{color:#321078}
    <div class="prep-ring"></div>
    <div class="prep-point cpu" data-prep-step="0"><span class="prep-art"><svg viewBox="0 0 48 48"><rect x="11" y="5" width="26" height="38" rx="4"/><path d="M17 12h14v12H17zM17 30h3m5 0h6M20 37h8"/><circle cx="24" cy="28" r="1"/></svg></span><b>Caixa servidor</b><small>1º • Ligar o servidor</small></div>
    <div class="prep-point totem" data-prep-step="1"><span class="prep-art"><svg viewBox="0 0 48 48"><rect x="12" y="3" width="24" height="34" rx="3"/><path d="M16 8h16v21H16zM20 37v6m8-6v6m-11 0h14"/><circle cx="24" cy="33" r="1"/></svg></span><b>Totens</b><small>2º • Ligar os totens</small></div>
-   <div class="prep-point kds" data-prep-step="2"><span class="prep-art"><svg viewBox="0 0 48 48"><rect x="3" y="7" width="19" height="27" rx="2"/><rect x="26" y="7" width="19" height="27" rx="2"/><path d="M8 13h9M8 18h9M31 13h9M31 18h9M12 34v6m-5 0h10m18-6v6m-5 0h10"/></svg></span><b>KDS</b><small>3º • Ligar os monitores</small></div>
-   <div class="prep-point panel" data-prep-step="3"><span class="prep-art"><svg viewBox="0 0 48 48"><rect x="5" y="5" width="38" height="28" rx="3"/><path d="M10 11h28M12 17h10m4 0h10M12 23h7m5 0h12M19 33v7m10-7v7m-15 0h30"/><path d="M18 27h12"/></svg></span><b>Painel de Senhas</b><small>4º • Ligar o painel</small></div>
+   <div class="prep-point panel" data-prep-step="2"><span class="prep-art"><svg viewBox="0 0 48 48"><rect x="3" y="7" width="19" height="27" rx="2"/><rect x="26" y="7" width="19" height="27" rx="2"/><path d="M8 13h9M8 18h9M31 13h9M31 18h9M12 34v6m-5 0h10m18-6v6m-5 0h10"/></svg></span><b>Painel de Senhas</b><small>3º • Ligar o painel</small></div>
+   <div class="prep-point kds" data-prep-step="3"><span class="prep-art"><svg viewBox="0 0 48 48"><rect x="5" y="5" width="38" height="28" rx="3"/><path d="M10 11h28M12 17h10m4 0h10M12 23h7m5 0h12M19 33v7m10-7v7m-15 0h30"/><path d="M18 27h12"/></svg></span><b>KDS</b><small>4º • Ligar os monitores</small></div>
    <div class="prep-controls"><span class="prep-status" id="prepStatus">Etapa 1 de 4</span><button class="prep-stop" id="prepStop" type="button">Encerrar apresentação</button></div>
   </div>
   <button class="node kds kds-guide" style="left:19%;top:50%" data-category="kds" data-id="kdsGuide" aria-expanded="false" aria-controls="kdsSubnodes" data-terms="o que aparece KDS quente frios expedição itens repetidos sanduíche montagem"><span class="ico">☷</span><span class="txt"><b>O QUE APARECE NO KDS?</b><small>Clique para ver as três telas</small></span><i class="dot"></i></button>
@@ -1065,16 +1065,16 @@ h1{color:#321078}
 </section></div>
 <script>
 const content={
-dinheiro:{tag:"PAGAMENTO • DINHEIRO",title:"Pedido do TOTEM em DINHEIRO? Onde Achar.",lead:"O pedido já foi feito no Totem, mas o pagamento precisa ser concluído no caixa antes da produção.",steps:["Chame o cliente pela senha através do Balcão Pendente e acesse o Balcão Pendente.","Localize o pedido correspondente e vá em Seguir para recebimento.","Caso o troco esteja incorreto, altere o valor lançado.","Conclua o recebimento e emita o cupom fiscal. No KDS, o indicador NÃO PAGO irá desaparecer e o pedido será liberado para produção."],note:"Enquanto o pedido estiver marcado como NÃO PAGO, o KDS não permite confirmar a conclusão do lanche.",media:"Acesso ao Balcão Pendente"},
-kds:{tag:"PRODUÇÃO • KDS",title:"PEDIDO NO KDS — Como baixar?",lead:"O mesmo pedido aparece simultaneamente nos KDS 1, 2 e 3. Cada tela tem uma parte da conferência e a baixa acontece em sequência, sem transferir o pedido de uma tela para outra.",steps:["KDS 1 — confira a primeira parte do pedido: nome do sanduíche/proteína, pão, queijo, quente ou frio, dobro de recheio, adicionais e batata rústica. Depois de executar e conferir essa parte, selecione o pedido e acione o botão dos dois certos.","KDS 2 — confira a segunda parte: hortifruti, temperos e molhos. “Dobro” e “Adicional” podem aparecer também nesta tela. O molho que aparece apenas pelo nome faz parte do lanche; “M.” antes do nome indica molho extra em pote separado. Depois de executar e conferir essa parte, selecione o pedido e acione o botão dos dois certos.","KDS 3 — faça a conferência final da expedição. Esta tela reúne as informações dos KDS 1 e 2 e acrescenta bebidas, acompanhamentos (Cookies e Chips) e a indicação de levar ou consumir na loja. Confira fisicamente o pedido completo e, somente depois, selecione o pedido e acione o botão dos dois certos.","A confirmação no KDS 3 finaliza a baixa e chama a senha no Painel de Senhas."],note:"O pedido aparece nos três KDS ao mesmo tempo, mas a execução é sequencial: KDS 1, depois KDS 2 e por último KDS 3. Não há transferência do pedido entre as telas. Não confirme no KDS 3 antes de conferir fisicamente o pedido completo. Se o nome do sanduíche não indicar “30CM”, considere 15 cm.",media:"DEMONSTRAÇÃO DE SELEÇÃO DO PEDIDO E BOTÃO DE CONFIRMAÇÃO"},
+dinheiro:{tag:"PAGAMENTO • DINHEIRO",title:"Pedido do TOTEM em DINHEIRO? Onde Achar.",lead:"Pedido feito no Totem: conclua o pagamento no caixa antes da produção.",steps:["Chame o cliente pela senha e abra o Balcão Pendente.","Localize o pedido e clique em Seguir para recebimento.","Se o troco estiver incorreto, ajuste o valor.","Conclua o recebimento e emita o cupom. O aviso NÃO PAGO sai do KDS e libera a produção."],note:"Com o aviso NÃO PAGO, o KDS bloqueia a confirmação do pedido.",media:"Acesso ao Balcão Pendente"},
+kds:{tag:"PRODUÇÃO • KDS",title:"PEDIDO NO KDS — Como baixar?",lead:"O pedido aparece nos três KDS. Confira e baixe na sequência: KDS 1, 2 e 3.",steps:["KDS 1 — confira sanduíche/proteína, pão, queijo, temperatura, dobro, adicionais e batata. Depois, selecione o pedido e clique nos dois certos.","KDS 2 — confira hortifruti, temperos e molhos. “M.” indica molho extra em pote separado. Depois, selecione o pedido e clique nos dois certos.","KDS 3 — confira o pedido completo, incluindo bebidas, Cookies, Chips e consumo no local ou para viagem. Só então selecione o pedido e clique nos dois certos.","A confirmação no KDS 3 conclui a baixa e chama a senha no Painel."],note:"A execução é sequencial e não há transferência entre telas. Confira fisicamente antes de baixar no KDS 3. Sem indicação “30CM”, considere 15 cm.",media:"DEMONSTRAÇÃO DE SELEÇÃO DO PEDIDO E BOTÃO DE CONFIRMAÇÃO"},
 kdsGuide:{tag:"LEITURA DAS TELAS • KDS",title:"O QUE APARECE NO KDS?",lead:"Selecione uma das três telas para identificar os itens. Os itens que se repetem entre KDS estão sinalizados no painel.",steps:[],note:"As capturas mostram o mesmo pedido (Balcão 22.001 • Senha 18 — COMER AQUI). A numeração identifica cada linha; as explicações ficam no HTML.",media:""},
 kdsHot:{tag:"KDS 1 • QUENTE",title:"KDS 1 — QUENTE",lead:"Identificação dos itens que aparecem na tela do KDS 1.",steps:[],note:"Os itens AD. BACON 15 CM, AD. SALAME 15 CM e QUENTE também aparecem no KDS 2 e no KDS 3.",media:""},
 kdsCold:{tag:"KDS 2 • FRIOS",title:"KDS 2 — FRIOS",lead:"Identificação dos itens que aparecem na tela do KDS 2.",steps:[],note:"AD. BACON 15 CM, AD. SALAME 15 CM e QUENTE também aparecem no KDS 1 e no KDS 3.",media:""},
 kdsDispatch:{tag:"KDS 3 • EXPEDIÇÃO",title:"KDS 3 — EXPEDIÇÃO",lead:"Conferência dos itens reunidos na tela de expedição.",steps:[],note:"A tela reúne itens que também aparecem nos KDS 1 e 2, além dos acompanhamentos e da bebida.",media:""},
-restaurar:{tag:"KDS • RESTAURAÇÃO DE PEDIDO",title:"Como Voltar um Pedido no KDS?",lead:"Baixei sem querer, preciso voltar, como fazer?",steps:["Clique no botão de retorno que fica ao lado da lupa.","Confirme a restauração do pedido.","Restaure o pedido.","Finalize a restauração."],note:"Siga a sequência demonstrada nos GIFs para retornar o pedido baixado por engano."},
-senha:{tag:"PAINEL DE SENHAS • KDS 3",title:"Como chamar novamente a senha no Painel de Senhas?",lead:"Quando a senha já foi chamada e saiu da faixa PRONTO, é possível devolvê-la ao painel restaurando o pedido exclusivamente pelo KDS 3 — Expedição. Atenção: esta ação não faz uma nova chamada com alerta em tela cheia; ela apenas retorna a senha para a coluna PRONTO.",steps:["No KDS 3 — EXPEDIÇÃO, clique no botão de retorno que fica ao lado da lupa.","Confirme a restauração do pedido.","Clique em RESTAURAR PEDIDO.","Clique em FINALIZAR RESTAURAÇÃO. A senha retorna para a coluna PRONTO no Painel de Senhas."],note:"ATENÇÃO: procedimento exclusivo do KDS 3 — EXPEDIÇÃO. Não execute a restauração pelo KDS 1 — QUENTE ou KDS 2 — FRIOS. A primeira chamada da senha exibe o alerta visual em tela cheia; ao chamar novamente, a restauração apenas devolve a senha à coluna PRONTO.",media:"DEMONSTRAÇÃO • RESTAURAR PEDIDO NO KDS 3 E RETORNAR A SENHA PARA PRONTO"},
-pausarTotem:{tag:"TOTEM • PAUSAR ITEM",title:"Como pausar um item no TOTEM?",lead:"Use esta orientação para deixar um produto temporariamente indisponível somente no canal TOTEM, sem alterar os demais canais de venda.",steps:["No PDV, clique na CAIXA DE FERRAMENTAS, na barra inferior.","Com o menu de Funções aberto, clique na seta para baixo para exibir as opções seguintes.","Selecione a função 36 — PAUSAR VENDA.","Pesquise o produto e localize o item na lista.","Desmarque somente a coluna TOTEM e clique em CONFIRMAR. Mantenha os demais canais como estão."],note:"Atenção: retire a seleção somente da coluna TOTEM. Não altere os demais canais de venda."},
-problema:{tag:"CENTRAL DE SUPORTE SW",title:"Problemas com os dispositivos?",lead:"Não conseguiu resolver pelo mapa? Fale diretamente com o suporte SW pelo WhatsApp. Informe a loja, o equipamento e o que aconteceu para agilizar o atendimento.",steps:["Identifique o equipamento com problema: PDV, TOTEM, KDS, Painel de Senhas ou periférico.","Se possível, tenha em mãos o CNPJ da loja e uma descrição ou foto do erro.",],note:"O WhatsApp direciona para o número oficial (16) 3101-9300. "}
+restaurar:{tag:"KDS • RESTAURAÇÃO DE PEDIDO",title:"Como Voltar um Pedido no KDS?",lead:"Baixei sem querer, preciso voltar, como fazer?",steps:["Clique no retorno ao lado da lupa.","Confirme a restauração.","Clique em Restaurar Pedido.","Clique em Finalizar Restauração."],note:"Siga a sequência demonstrada nos GIFs para retornar o pedido baixado por engano."},
+senha:{tag:"PAINEL DE SENHAS • KDS 3",title:"Como chamar novamente a senha no Painel de Senhas?",lead:"Para devolver a senha à faixa PRONTO, restaure o pedido pelo KDS 3 — Expedição. Não gera novo alerta em tela cheia.",steps:["No KDS 3 — Expedição, clique no retorno ao lado da lupa.","Confirme a restauração.","Clique em Restaurar Pedido.","Clique em Finalizar Restauração. A senha volta para PRONTO."],note:"Use somente o KDS 3 — Expedição. Não restaure pelo KDS 1 ou 2. A primeira chamada gera alerta; a restauração apenas retorna a senha para PRONTO.",media:"DEMONSTRAÇÃO • RESTAURAR PEDIDO NO KDS 3 E RETORNAR A SENHA PARA PRONTO"},
+pausarTotem:{tag:"TOTEM • PAUSAR ITEM",title:"Como pausar um item no TOTEM?",lead:"Pause o produto apenas no canal TOTEM, sem alterar os demais canais.",steps:["No PDV, abra a Caixa de Ferramentas na barra inferior.","No menu Funções, clique na seta para baixo.","Selecione 36 — Pausar Venda.","Pesquise e localize o produto.","Desmarque apenas TOTEM e clique em Confirmar."],note:"Atenção: retire a seleção somente da coluna TOTEM. Não altere os demais canais de venda."},
+problema:{tag:"CENTRAL DE SUPORTE SW",title:"Problemas com os dispositivos?",lead:"Precisa de ajuda? Fale com o suporte SW pelo WhatsApp e informe loja, equipamento e erro.",steps:["Informe qual equipamento apresentou problema: PDV, Totem, KDS, Painel ou periférico.","Tenha o CNPJ da loja e, se possível, uma foto ou descrição do erro."],note:"O WhatsApp direciona para o número oficial (16) 3101-9300. "}
 };
 function openTopic(id){
  const d=content[id];if(!d)return;
@@ -1257,7 +1257,7 @@ function openTopic(id){
  }
  document.getElementById("drawerNote").textContent=d.note||"";
  document.getElementById("drawerNote").style.display=d.note?"block":"none";
- document.getElementById("overlay").classList.add("open");
+ document.getElementById("overlay").classList.add("open");document.body.classList.add("drawer-open");
  const drawer=document.querySelector(".drawer");
  const drawerContent=document.querySelector(".drawer-content");
  const resetDrawerScroll=()=>{drawer.scrollTop=0;drawerContent.scrollTop=0;document.getElementById("overlay").scrollTop=0;};
@@ -1266,7 +1266,7 @@ function openTopic(id){
  setTimeout(resetDrawerScroll,260);
  document.body.style.overflow="hidden";
 }
-function closeDrawer(){const v=document.querySelector("#mediaSlot video");if(v)v.pause();document.getElementById("overlay").classList.remove("open");document.querySelector(".drawer").scrollTop=0;document.querySelector(".drawer-content").scrollTop=0;document.body.style.overflow=""}
+function closeDrawer(){const v=document.querySelector("#mediaSlot video");if(v)v.pause();document.getElementById("overlay").classList.remove("open");document.body.classList.remove("drawer-open");document.querySelector(".drawer").scrollTop=0;document.querySelector(".drawer-content").scrollTop=0;document.body.style.overflow=""}
 function backdropClose(e){if(e.target.id==="overlay")closeDrawer()}
 function openHelp(){startTutorial(true)}
 
@@ -1391,6 +1391,7 @@ function setAllMenusExpanded(expanded){
  }
  hubToggle.setAttribute("aria-expanded",String(expanded));
  hubHint.textContent=expanded?"Clique para recolher os menus":"Clique para expandir os menus";
+ scheduleConnectorUpdate();
 }
 function expandCategory(category){
  const alreadyActive=mapShell.classList.contains("category-mode") &&
@@ -1408,6 +1409,7 @@ function expandCategory(category){
  });
  hubToggle.setAttribute("aria-expanded","true");
  hubHint.textContent="Categoria selecionada • clique para expandir tudo";
+ scheduleConnectorUpdate();
 }
 hubToggle.addEventListener("click",()=>{
  const overlay=document.getElementById("overlay");
@@ -1438,9 +1440,9 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer()});
 
 const tutorialSteps = [
  {title:"Passo 1 — Legenda por sistema",text:"Observe a legenda no alto do mapa. Cada cor identifica um sistema: Pagamento, PDV, KDS, Painel, Totem ou Outros. A mesma cor pode aparecer em vários menus.",target:".system-legend",button:"Avançar"},
- {title:"Passo 2 — Selecione um menu",text:"Agora veja um dos menus destacado. Cada opção representa uma situação ou tarefa. Clique ou toque em qualquer menu para abrir sua orientação.",target:".node",button:"Avançar"},
- {title:"Passo 3 — Abra um menu de orientação",text:"Veja como o menu fica aberto: ele mostra o título, uma explicação e as etapas da operação. O painel desliza pela lateral e pode ser fechado pelo X ou por “Voltar ao mapa”.",target:".drawer",button:"Avançar"},
- {title:"Passo 4 — Veja uma etapa com GIF",text:"Agora observe apenas esta etapa destacada. O GIF demonstra visualmente a ação que deve ser executada. Cada orientação pode trazer imagens ou GIFs dentro da etapa correspondente.",target:".drawer .step-row:nth-child(2)",button:"Concluir"}
+ {title:"Passo 2 — Selecione um menu",text:"Veja o menu “Pedido em dinheiro” indicado no mapa. Cada opção representa uma situação ou tarefa; selecione um ponto para abrir sua orientação.",target:".node.money",button:"Avançar"},
+ {title:"Passo 3 — Menu aberto",text:"Veja como o menu fica aberto: ele mostra o título, uma explicação e as etapas da operação. O painel desliza pela lateral e pode ser fechado pelo X ou por “Voltar ao mapa”.",target:".drawer-head",button:"Avançar"},
+ {title:"Passo 4 — Consulte uma etapa",text:"Agora observe uma etapa específica do procedimento. O destaque indica a etapa e o GIF demonstra visualmente a ação que deve ser executada.",target:".drawer .step-row:nth-child(2)",button:"Concluir"}
 ]
 let tutorialIndex=0;
 let tutorialOpen=false;
@@ -1455,15 +1457,26 @@ function positionTutorialSpotlight(target){
  const spotlight=document.getElementById("tourSpotlight");
  const rect=target.getBoundingClientRect();
  const pad=5;
- const left=Math.max(6,Math.min(window.innerWidth-12,rect.left-pad));
- const top=Math.max(6,Math.min(window.innerHeight-12,rect.top-pad));
- const right=Math.max(left,Math.min(window.innerWidth-6,rect.right+pad));
- const bottom=Math.max(top,Math.min(window.innerHeight-6,rect.bottom+pad));
- spotlight.style.top=top+"px";
+ const left=Math.max(4,rect.left-pad);
+ const top=Math.max(4,rect.top-pad);
+ const right=Math.min(window.innerWidth-4,rect.right+pad);
+ const bottom=Math.min(window.innerHeight-4,rect.bottom+pad);
  spotlight.style.left=left+"px";
- spotlight.style.width=(right-left)+"px";
- spotlight.style.height=(bottom-top)+"px";
+ spotlight.style.top=top+"px";
+ spotlight.style.width=Math.max(0,right-left)+"px";
+ spotlight.style.height=Math.max(0,bottom-top)+"px";
  spotlight.classList.add("active");
+}
+function refreshTutorialSpotlight(){
+ if(!tutorialOpen)return;
+ const target=document.querySelector(tutorialSteps[tutorialIndex].target);
+ if(!target)return;
+ requestAnimationFrame(()=>positionTutorialSpotlight(target));
+ setTimeout(()=>{
+   if(!tutorialOpen)return;
+   const currentTarget=document.querySelector(tutorialSteps[tutorialIndex].target);
+   if(currentTarget)positionTutorialSpotlight(currentTarget);
+ },320);
 }
 function showTutorialStep(index){
  tutorialIndex=Math.max(0,Math.min(index,tutorialSteps.length-1));
@@ -1485,7 +1498,7 @@ function showTutorialStep(index){
  if(target && (tutorialIndex<2 || tutorialIndex===3)){
    target.scrollIntoView({behavior:"auto",block:"center",inline:"nearest"});
  }
- requestAnimationFrame(()=>positionTutorialSpotlight(target));
+ refreshTutorialSpotlight();
 }
 function startTutorial(force=false){
  tutorialPreviousFocus=document.activeElement;
@@ -1515,8 +1528,7 @@ function tutorialBack(){
 }
 window.addEventListener("resize",function(){
  if(!tutorialOpen)return;
- const target=document.querySelector(tutorialSteps[tutorialIndex].target);
- positionTutorialSpotlight(target);
+ refreshTutorialSpotlight();
 });
 document.addEventListener("keydown",function(e){
  if(!tutorialOpen)return;
@@ -1540,7 +1552,7 @@ document.addEventListener("DOMContentLoaded",function(){
  const points=[...stage.querySelectorAll('.prep-point')], status=document.getElementById('prepStatus');
  const stop=document.getElementById('prepStop');
  let timer=null,index=0,running=false;
- const STEP_MS=4200;
+ const STEP_MS=1600;
  function positionStage(){
    if(!stage.classList.contains('active'))return;
    const a=shell.getBoundingClientRect(), b=hub.getBoundingClientRect();
@@ -1549,7 +1561,7 @@ document.addEventListener("DOMContentLoaded",function(){
  }
  function showStep(i){
    index=i; points.forEach((p,n)=>p.classList.toggle('active',n===i));
-   status.textContent='Etapa '+(i+1)+' de 4 • '+['Caixa servidor','Totens','KDS','Painel de Senhas'][i];
+   status.textContent='Etapa '+(i+1)+' de 4 • '+['Caixa servidor','Totens','Painel de Senhas','KDS'][i];
  }
  function finish(){
    if(timer){clearInterval(timer);timer=null;} running=false;
